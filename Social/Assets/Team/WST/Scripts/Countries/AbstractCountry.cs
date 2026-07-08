@@ -9,10 +9,7 @@ namespace Team.WST.Scripts.Countries
         [field: SerializeField] public CountrySO CountrySO { get; private set; }
         private Dictionary<CountryType, int> _countriesCulturePowerDict = new();
 
-        public virtual void Init()
-        {
-            AddCulturePower(CountrySO.CountryType, CountrySO.InitCulturalPower);
-        }
+        public abstract void Init();
 
         public void AddCulturePower(CountryType countryType, int  power)
         {
