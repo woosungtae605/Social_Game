@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Team.WST.Scripts.Country
+namespace Team.WST.Scripts.Cameras
 {
     public class CameraWheel : MonoBehaviour
     {
