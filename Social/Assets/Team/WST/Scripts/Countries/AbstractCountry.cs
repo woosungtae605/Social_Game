@@ -9,17 +9,20 @@ namespace Team.WST.Scripts.Countries
         [field: SerializeField] public CountrySO CountrySO { get; private set; }
         private Dictionary<CountryType, int> _countriesCulturePowerDict = new();
 
-        public abstract void Init();
+        public void Init()
+        {
+            AddCulturePower(CountrySO.CountryType, CountrySO.InitCulturalPower);
+        }
 
         public void AddCulturePower(CountryType countryType, int  power)
         {
             if (_countriesCulturePowerDict.ContainsKey(countryType))
             {
-                _countriesCulturePowerDict[CountrySO.CountryType] += power;
+                _countriesCulturePowerDict[countryType] += power;
             }
             else
             {
-                _countriesCulturePowerDict[CountrySO.CountryType] = power;
+                _countriesCulturePowerDict[countryType] = power;
             }
         }
     }
