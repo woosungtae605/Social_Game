@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Team.WST.Scripts.Country
+namespace Team.WST.Scripts.Cameras
 {
     public class CameraTargetMover : MonoBehaviour
     {
@@ -11,14 +10,7 @@ namespace Team.WST.Scripts.Country
         
         [SerializeField] private Vector2 minPos;
         [SerializeField] private Vector2 maxPos;
-
-        private Vector2 _originPos;
-
-        private void Awake()
-        {
-            _originPos = transform.position;
-        }
-
+        
         private void Update()
         {
             MouseMove();
@@ -54,8 +46,11 @@ namespace Team.WST.Scripts.Country
         {
             Gizmos.color = Color.red;
             
+            Vector3 center = new Vector3(
+                (minPos.x + maxPos.x) * 0.5f, (minPos.y + maxPos.y) * 0.5f, transform.position.z);
+            
             Vector3 size = new Vector3(maxPos.x - minPos.x, maxPos.y - minPos.y, 0f);
-            Gizmos.DrawWireCube(_originPos, size);
+            Gizmos.DrawWireCube(center, size);
         }
     }
 }
