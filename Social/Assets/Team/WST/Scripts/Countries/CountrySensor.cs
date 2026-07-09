@@ -11,11 +11,22 @@ namespace Team.WST.Scripts.Countries
         public void Sensing()
         {
             Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.right);
+            Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 
-            if (hit.collider.TryGetComponent(out ICultureShowUI cultureShowUI))
+            ICultureShowUI cultureShowUI = null;
+
+            if (hitCollider != null)
             {
-                //일단 여기서 나머지 처리
+                cultureShowUI = hitCollider.GetComponentInParent<ICultureShowUI>();
+            }
+            
+            if (cultureShowUI == null)
+            {
+                // 여기서 AllCountry 보내기
+            }
+            else
+            {
+                
             }
         }
     }

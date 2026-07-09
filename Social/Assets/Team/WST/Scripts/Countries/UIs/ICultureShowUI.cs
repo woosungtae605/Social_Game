@@ -7,7 +7,7 @@ namespace Team.WST.Scripts.Countries.UIs
     public interface ICultureShowUI
     {
         public string DisplayName { get; }
-        Dictionary<CountryType, int> CulturePowerDict { get; }
+        IReadOnlyDictionary<CountryType, int> CulturePowerDict { get; }
         Sprite DisplaySprite { get; }
         Color DisplayColor { get; }
     }

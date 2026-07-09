@@ -11,7 +11,7 @@ namespace Team.WST.Scripts.Countries
         private Dictionary<CountryType, int> _countriesCulturePowerDict = new();
 
         public string DisplayName => CountrySO.CountryName;
-        public Dictionary<CountryType, int> CulturePowerDict  => _countriesCulturePowerDict;
+        public IReadOnlyDictionary<CountryType, int> CulturePowerDict => _countriesCulturePowerDict;
         public Sprite DisplaySprite => CountrySO.CountrySprite;
         public Color DisplayColor => CountrySO.CountryColor;
 
