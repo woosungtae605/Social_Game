@@ -9,6 +9,7 @@ namespace Team.WST.Scripts.Countries.UIs
     public class CountryCanvas : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI countryName;
+        [SerializeField] private TextMeshProUGUI allCulturePower;
         [SerializeField] private ShowPercentUI showPercent;
         private void Awake()
         {
@@ -25,6 +26,7 @@ namespace Team.WST.Scripts.Countries.UIs
             if (evt.ShowUI == null)
                 return;
 
+            allCulturePower.text = evt.ShowUI.AllCulturePower.ToString();
             countryName.text = evt.ShowUI.DisplayName;
             showPercent.Show(evt.ShowUI.CulturePowerDict);
         }

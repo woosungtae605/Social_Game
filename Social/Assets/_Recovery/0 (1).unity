@@ -707,7 +707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CountryCanvas
   countryName: {fileID: 318178597}
-  allCulturePower: {fileID: 836693591}
   showPercent: {fileID: 1584122809}
 --- !u!1 &523838496
 GameObject:
@@ -1501,7 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc2eaaa7add4014bed88fbcbcc73957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Country.CameraTargetMover
-  moveSpeed: 10
+  moveSpeed: 13
   edgeSize: {x: 50, y: 50}
   minPos: {x: -10, y: -7}
   maxPos: {x: 10, y: 7}
