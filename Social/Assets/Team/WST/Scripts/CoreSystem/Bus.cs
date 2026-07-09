@@ -2,9 +2,9 @@
 
 namespace Team.WST.Scripts.CoreSystem
 {
-    public class Bus<T> where T : IEvent
+    public static class Bus<T> where T : IEvent
     {
-        public Action<T> OnEvnent;
-        public void RaiseEvent(T evnt) => OnEvnent?.Invoke(evnt);
+        public static event Action<T> OnEvent;
+        public static void RaiseEvent(T evnt) => OnEvent?.Invoke(evnt);
     }
 }

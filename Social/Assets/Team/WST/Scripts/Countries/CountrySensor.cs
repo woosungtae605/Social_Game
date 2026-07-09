@@ -1,4 +1,6 @@
-﻿using Team.WST.Scripts.Countries.UIs;
+﻿using Team.WST.Scripts.CoreSystem;
+using Team.WST.Scripts.Countries.UIs;
+using Team.WST.Scripts.Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,13 +23,9 @@ namespace Team.WST.Scripts.Countries
             }
             
             if (cultureShowUI == null)
-            {
-                // 여기서 AllCountry 보내기
-            }
-            else
-            {
-                
-            }
+                return;
+            
+            Bus<CultureSensorUIEvent>.RaiseEvent(new CultureSensorUIEvent(cultureShowUI));
         }
     }
 }
