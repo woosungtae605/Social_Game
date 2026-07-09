@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8030018868775936123}
   - component: {fileID: 4553644802305256154}
   - component: {fileID: 2879063101145563423}
+  - component: {fileID: -236005238965723855}
   m_Layer: 5
   m_Name: PercentObject
   m_TagString: Untagged
@@ -96,3 +97,17 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!114 &-236005238965723855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891250309367058038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5aad288f5f94c6cadc3f9bc310425e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CulturePercentElement
+  layoutElement: {fileID: 2879063101145563423}
+  image: {fileID: 4553644802305256154}

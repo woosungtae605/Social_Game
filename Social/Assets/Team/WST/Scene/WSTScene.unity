@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec93a27f22f447dd81adc21ed11c7c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.ShowPercentUI
-  showPercentUIPrefab: {fileID: 5891250309367058038, guid: 158fb2262b3d7a74f88916b7636a9538, type: 3}
+  showPercentUIPrefab: {fileID: -236005238965723855, guid: 158fb2262b3d7a74f88916b7636a9538, type: 3}
   countryManager: {fileID: 203035108}
   allCulturePower: {fileID: 915224529}
 --- !u!1 &823668866

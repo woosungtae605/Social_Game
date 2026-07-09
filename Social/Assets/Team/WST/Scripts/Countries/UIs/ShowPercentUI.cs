@@ -8,7 +8,7 @@ namespace Team.WST.Scripts.Countries.UIs
 {
     public class ShowPercentUI : MonoBehaviour
     {
-        [SerializeField] private GameObject showPercentUIPrefab;
+        [SerializeField] private CulturePercentElement showPercentUIPrefab;
         [SerializeField] private CountryManager countryManager;
 
         [Header("UI")]
@@ -36,19 +36,8 @@ namespace Team.WST.Scripts.Countries.UIs
                 if (pair.Value <= 0)
                     continue;
 
-                GameObject percentUI = Instantiate(showPercentUIPrefab, transform);
-
-                LayoutElement layoutElement = percentUI.GetComponent<LayoutElement>();
-
-                layoutElement.minWidth = 0f;
-                layoutElement.preferredWidth = 0f;
-                layoutElement.flexibleWidth = (float)pair.Value / totalPower;
-
-                Image image = percentUI.GetComponent<Image>();
-                if (image == null)
-                    image = percentUI.AddComponent<Image>();
-
-                image.color = GetCountryColor(pair.Key);
+                CulturePercentElement percentUI = Instantiate(showPercentUIPrefab, transform);
+                percentUI.SetData((float)pair.Value / totalPower, GetCountryColor(pair.Key));
             }
         }
 
