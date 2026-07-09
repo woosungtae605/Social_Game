@@ -1,4 +1,5 @@
-﻿using Team.WST.Scripts.CoreSystem;
+﻿using System;
+using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.UIs;
 using Team.WST.Scripts.Events;
 using UnityEngine;
@@ -8,8 +9,21 @@ namespace Team.WST.Scripts.Countries
 {
     public class CountrySensor : MonoBehaviour
     {
-        private Camera _mainCamera = Camera.main;
+        private Camera _mainCamera;
         
+        private void Awake()
+        {
+            _mainCamera = Camera.main;
+        }
+
+        public void Update()
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                Sensing();
+            }
+        }
+
         public void Sensing()
         {
             Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
