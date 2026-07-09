@@ -1,13 +1,19 @@
 ﻿using System.Collections.Generic;
 using Team.WST.Scripts.Countries.Informations;
+using Team.WST.Scripts.Countries.UIs;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries
 {
-    public abstract class AbstractCountry : MonoBehaviour
+    public abstract class AbstractCountry : MonoBehaviour, ICultureShowUI
     {
         [field: SerializeField] public CountrySO CountrySO { get; private set; }
         private Dictionary<CountryType, int> _countriesCulturePowerDict = new();
+
+        public string DisplayName => CountrySO.CountryName;
+        public Dictionary<CountryType, int> CulturePowerDict  => _countriesCulturePowerDict;
+        public Sprite DisplaySprite => CountrySO.CountrySprite;
+        public Color DisplayColor => CountrySO.CountryColor;
 
         public void Init()
         {
