@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CountryCanvas
   countryName: {fileID: 318178597}
-  showPercent: {fileID: 786804128}
+  showPercent: {fileID: 1584122809}
 --- !u!1 &523838496
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +799,6 @@ GameObject:
   - component: {fileID: 786804126}
   - component: {fileID: 786804125}
   - component: {fileID: 786804127}
-  - component: {fileID: 786804128}
   m_Layer: 5
   m_Name: ShowPercent
   m_TagString: Untagged
@@ -890,21 +889,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &786804128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786804123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec93a27f22f447dd81adc21ed11c7c8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.ShowPercentUI
-  showPercentUIPrefab: {fileID: -236005238965723855, guid: 158fb2262b3d7a74f88916b7636a9538, type: 3}
-  countryManager: {fileID: 203035108}
-  allCulturePower: {fileID: 915224529}
 --- !u!1 &823668866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1553,7 @@ GameObject:
   - component: {fileID: 1584122807}
   - component: {fileID: 1584122806}
   - component: {fileID: 1584122808}
+  - component: {fileID: 1584122809}
   m_Layer: 5
   m_Name: CountryPanel
   m_TagString: Untagged
@@ -1661,6 +1646,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1584122809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584122804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec93a27f22f447dd81adc21ed11c7c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.ShowPercentUI
+  showPercentUIPrefab: {fileID: -236005238965723855, guid: 158fb2262b3d7a74f88916b7636a9538, type: 3}
+  countryManager: {fileID: 203035108}
+  showPercentUI: {fileID: 786804123}
+  allCulturePower: {fileID: 915224529}
 --- !u!1 &1645394279
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,8 @@ namespace Team.WST.Scripts.Countries.UIs
         [SerializeField] private CulturePercentElement showPercentUIPrefab;
         [SerializeField] private CountryManager countryManager;
 
-        [Header("UI")]
+        [Header("UI")] 
+        [SerializeField] private GameObject showPercentUI;
         [SerializeField] private  TextMeshProUGUI allCulturePower;
         
         public void Show(IReadOnlyDictionary<CountryType, int> culturePowerDict)
@@ -36,16 +37,16 @@ namespace Team.WST.Scripts.Countries.UIs
                 if (pair.Value <= 0)
                     continue;
 
-                CulturePercentElement percentUI = Instantiate(showPercentUIPrefab, transform);
+                CulturePercentElement percentUI = Instantiate(showPercentUIPrefab, showPercentUI.transform);
                 percentUI.SetData((float)pair.Value / totalPower, GetCountryColor(pair.Key));
             }
         }
 
         private void Clear()
         {
-            for (int i = transform.childCount - 1; i >= 0; i--)
+            for (int i = showPercentUI.transform.childCount - 1; i >= 0; i--)
             {
-                Destroy(transform.GetChild(i).gameObject);
+                Destroy(showPercentUI.transform.GetChild(i).gameObject);
             }
         }
 

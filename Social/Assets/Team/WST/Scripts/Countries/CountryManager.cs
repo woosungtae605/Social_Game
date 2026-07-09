@@ -23,15 +23,15 @@ namespace Team.WST.Scripts.Countries
             }
         }
         
-        public bool TryGetCountry(CountryType countryType, out AbstractCountry abtractCountry)
+        public bool TryGetCountry(CountryType countryType, out AbstractCountry abstractCountry)
         {
-            abtractCountry = null;
+            abstractCountry = null;
 
             if (!_countriesDict.TryGetValue(countryType, out AbstractCountry country))
                 return false;
 
-            abtractCountry = country;
-            return abtractCountry != null;
+            abstractCountry = country;
+            return abstractCountry != null;
         }
     }
 }
