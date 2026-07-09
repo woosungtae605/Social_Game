@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Team.WST.Scripts.Countries.Informations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +9,14 @@ namespace Team.WST.Scripts.Countries.UIs
     public class ShowPercentUI : MonoBehaviour
     {
         [SerializeField] private GameObject showPercentUIPrefab;
-        [SerializeField] private CountrySO[] countrySOs;
+        [SerializeField] private CountryManager countryManager;
 
+        [Header("UI")]
+        [SerializeField] private  TextMeshProUGUI allCulturePower;
+        
         public void Show(IReadOnlyDictionary<CountryType, int> culturePowerDict)
         {
             Clear();
-
-            if (showPercentUIPrefab == null || culturePowerDict == null)
-                return;
 
             int totalPower = 0;
 
@@ -24,6 +25,8 @@ namespace Team.WST.Scripts.Countries.UIs
                 if (power > 0)
                     totalPower += power;
             }
+            
+            allCulturePower.text = totalPower.ToString();
 
             if (totalPower <= 0)
                 return;
@@ -59,12 +62,10 @@ namespace Team.WST.Scripts.Countries.UIs
 
         private Color GetCountryColor(CountryType countryType)
         {
-            foreach (CountrySO countrySO in countrySOs)
+            if (countryManager.TryGetCountry(countryType, out var country))
             {
-                if (countrySO != null && countrySO.CountryType == countryType)
-                    return countrySO.CountryColor;
+                return country.DisplayColor;
             }
-
             return Color.white;
         }
     }

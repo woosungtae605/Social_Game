@@ -24,7 +24,7 @@ namespace Team.WST.Scripts.Countries
             }
         }
 
-        public void Sensing()
+        private void Sensing()
         {
             Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
