@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Team.WST.Scripts.Countries.Informations;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,48 @@ namespace Team.WST.Scripts.Countries.UIs
         [Header("UI")] 
         [SerializeField] private GameObject showPercentUI;
         [SerializeField] private  TextMeshProUGUI allCulturePower;
+
+        [Header("pooling")] 
+        [SerializeField] private int initCount;
+
+        private readonly Stack<CulturePercentElement> _poolStack = new();
+        private readonly List<CulturePercentElement> _activeList = new();
+
+        public void Init()
+        {
+            for (int i = 0; i < initCount; i++)
+            {
+                CreatePoolObject();
+            }
+        }
+
+        private CulturePercentElement CreatePoolObject()
+        {
+            CulturePercentElement percentUI = Instantiate(showPercentUIPrefab, showPercentUI.transform);
+            percentUI.gameObject.SetActive(false);
+
+            _poolStack.Push(percentUI);
+            return percentUI;
+        }
+        
+        private CulturePercentElement GetPoolObject()
+        {
+            if (_poolStack.Count <= 0)
+                CreatePoolObject();
+
+            CulturePercentElement percentUI = _poolStack.Pop();
+            percentUI.gameObject.SetActive(true);
+            
+            _activeList.Add(percentUI);
+
+            return percentUI;
+        }
+        
+        public void ReturnPoolObject(CulturePercentElement percentUI)
+        {
+            percentUI.gameObject.SetActive(false);
+            _poolStack.Push(percentUI);
+        }
         
         public void Show(IReadOnlyDictionary<CountryType, int> culturePowerDict)
         {
@@ -37,17 +80,19 @@ namespace Team.WST.Scripts.Countries.UIs
                 if (pair.Value <= 0)
                     continue;
 
-                CulturePercentElement percentUI = Instantiate(showPercentUIPrefab, showPercentUI.transform);
+                CulturePercentElement percentUI = GetPoolObject();
                 percentUI.SetData((float)pair.Value / totalPower, GetCountryColor(pair.Key));
             }
         }
 
         private void Clear()
         {
-            for (int i = showPercentUI.transform.childCount - 1; i >= 0; i--)
+            for (int i = _activeList.Count - 1; i >= 0; i--)
             {
-                Destroy(showPercentUI.transform.GetChild(i).gameObject);
+                ReturnPoolObject(_activeList[i]);
             }
+
+            _activeList.Clear();
         }
 
         private Color GetCountryColor(CountryType countryType)

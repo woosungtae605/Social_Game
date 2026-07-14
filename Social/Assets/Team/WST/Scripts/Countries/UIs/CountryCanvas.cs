@@ -14,8 +14,9 @@ namespace Team.WST.Scripts.Countries.UIs
         private void Awake()
         {
             Bus<CultureSensorUIEvent>.OnEvent += HandleCultureSensorUI;
+            showPercent.Init();
         }
-
+        
         private void OnDestroy()
         {
             Bus<CultureSensorUIEvent>.OnEvent -= HandleCultureSensorUI;

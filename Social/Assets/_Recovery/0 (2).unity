@@ -1663,7 +1663,6 @@ MonoBehaviour:
   countryManager: {fileID: 203035108}
   showPercentUI: {fileID: 786804123}
   allCulturePower: {fileID: 915224529}
-  initCount: 5
 --- !u!1 &1645394279
 GameObject:
   m_ObjectHideFlags: 0
