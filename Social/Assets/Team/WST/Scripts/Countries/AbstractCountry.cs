@@ -9,8 +9,10 @@ namespace Team.WST.Scripts.Countries
     {
         [field: SerializeField] public CountrySO CountrySO { get; private set; }
         private Dictionary<CountryType, int> _countriesCulturePowerDict = new();
+        private int _allCulturePower = 0;
 
         public string DisplayName => CountrySO.CountryName;
+        public int AllCulturePower => _allCulturePower;
         public IReadOnlyDictionary<CountryType, int> CulturePowerDict => _countriesCulturePowerDict;
         public Sprite DisplaySprite => CountrySO.CountrySprite;
         public Color DisplayColor => CountrySO.CountryColor;
@@ -30,6 +32,7 @@ namespace Team.WST.Scripts.Countries
             {
                 _countriesCulturePowerDict[countryType] = power;
             }
+            _allCulturePower += power;
         }
     }
 }
