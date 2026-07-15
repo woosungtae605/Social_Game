@@ -2,7 +2,7 @@
 using Team.WST.Scripts.Countries.Informations;
 using UnityEngine;
 
-namespace Team.WST.Scripts.Countries.UIs
+namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
 {
     public interface ICultureShowUI
     {

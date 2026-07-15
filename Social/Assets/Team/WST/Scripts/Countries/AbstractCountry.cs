@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Team.WST.Scripts.Countries.Informations;
 using Team.WST.Scripts.Countries.UIs;
+using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries

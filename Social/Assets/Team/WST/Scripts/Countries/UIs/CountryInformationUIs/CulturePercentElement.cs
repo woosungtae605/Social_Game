@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Team.WST.Scripts.Countries.UIs
+namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
 {
     public class CulturePercentElement : MonoBehaviour
     {

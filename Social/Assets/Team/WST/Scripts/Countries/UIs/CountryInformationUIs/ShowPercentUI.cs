@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Team.WST.Scripts.Countries.Informations;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace Team.WST.Scripts.Countries.UIs
+namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
 {
     public class ShowPercentUI : MonoBehaviour
     {
