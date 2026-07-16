@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DevLib.ObjectPool.Runtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -6,7 +7,8 @@ using UnityEngine.UI;
 public class UIDraggable : MonoBehaviour,
     IBeginDragHandler,
     IDragHandler,
-    IEndDragHandler
+    IEndDragHandler,
+    IPoolable
 {
     [field: SerializeField]
     public float PropagationPower { get; private set; } = 50f;
@@ -110,5 +112,22 @@ public class UIDraggable : MonoBehaviour,
         );
 
         return firstRect.Overlaps(secondRect);
+    }
+
+    public void New()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Free()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public PoolItemSO PoolItem { get; set; }
+    public GameObject GameObject { get; }
+    public void ResetItem()
+    {
+        throw new System.NotImplementedException();
     }
 }
