@@ -25,6 +25,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
             moreViewBtn.onClick.AddListener(HandleMoreView);
             showPercent.Init();
         }
+        
         private void OnDestroy()
         {
             Bus<CultureSensorUIEvent>.OnEvent -= HandleCultureSensorUI;

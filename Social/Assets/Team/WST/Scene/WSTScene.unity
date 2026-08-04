@@ -940,10 +940,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: countryName
+  m_text: "\uAD6D\uAC00 \uC774\uB984"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 446095743}
+  m_fontAsset: {fileID: 11400000, guid: fb079d3b457e5074cb53e49b35834366, type: 2}
+  m_sharedMaterial: {fileID: -2406209669028737826, guid: fb079d3b457e5074cb53e49b35834366, type: 2}
   m_fontSharedMaterials:
   - {fileID: 446095743}
   m_fontMaterial: {fileID: 446095743}
@@ -1115,10 +1115,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TOTAL POWER
+  m_text: "\uD1A0\uD0C8 \uD798"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 644702688}
+  m_fontAsset: {fileID: 11400000, guid: fb079d3b457e5074cb53e49b35834366, type: 2}
+  m_sharedMaterial: {fileID: -2406209669028737826, guid: fb079d3b457e5074cb53e49b35834366, type: 2}
   m_fontSharedMaterials:
   - {fileID: 644702688}
   m_fontMaterial: {fileID: 644702688}
@@ -4329,10 +4329,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ACCEPTED
+  m_text: "\uC218\uC6A9\uB825"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb079d3b457e5074cb53e49b35834366, type: 2}
+  m_sharedMaterial: {fileID: -2406209669028737826, guid: fb079d3b457e5074cb53e49b35834366, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
