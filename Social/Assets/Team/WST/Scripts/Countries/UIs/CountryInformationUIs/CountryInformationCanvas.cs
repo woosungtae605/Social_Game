@@ -49,5 +49,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
                 OnMoreViewBtnClick?.Invoke(_currentCultureShowUI);
         }
 
+        public void Show() => gameObject.SetActive(true);
+        public void Hide() => gameObject.SetActive(false);
     }
 }
