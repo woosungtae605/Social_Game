@@ -10,6 +10,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
     public class CountryInformationCanvas : MonoBehaviour
     {
         [Header("UIs")]
+        [SerializeField] private GameObject panelRoot;
         [SerializeField] private TextMeshProUGUI countryName;
         [SerializeField] private TextMeshProUGUI allCulturePower;
         [SerializeField] private Button moreViewBtn;
@@ -49,5 +50,14 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
                 OnMoreViewBtnClick?.Invoke(_currentCultureShowUI);
         }
 
+        public void Show()
+        {
+            panelRoot.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            panelRoot.SetActive(false);
+        }
     }
 }

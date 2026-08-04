@@ -1414,6 +1414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4719e4e91cd54f1a9c3afc040fe8087c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CountryCanvas
+  panelRoot: {fileID: 1584122804}
   countryName: {fileID: 318178597}
   allCulturePower: {fileID: 836693591}
   moreViewBtn: {fileID: 1814864882}
@@ -1852,6 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958de95642aa449bbd5dd997155f3d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CountryDetailCanvas
+  panelRoot: {fileID: 1620068287}
   exitBtn: {fileID: 1458304317}
 --- !u!1 &684402366
 GameObject:
@@ -2910,8 +2912,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CountryCanvas
   countryDetailCanvas: {fileID: 681927822}
   countryInformationCanvas: {fileID: 519513375}
-  countryDetailObject: {fileID: 1620068287}
-  countryInformationObject: {fileID: 1584122804}
 --- !u!1 &1280829115
 GameObject:
   m_ObjectHideFlags: 0
