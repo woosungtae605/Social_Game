@@ -8,6 +8,8 @@ namespace Team.WST.Scripts.Countries.UIs
     {
         [SerializeField] private CountryDetailCanvas countryDetailCanvas;
         [SerializeField] private CountryInformationCanvas countryInformationCanvas;
+        [SerializeField] private GameObject countryDetailObject;
+        [SerializeField] private GameObject countryInformationObject;
 
         private void Awake()
         {
@@ -26,14 +28,14 @@ namespace Team.WST.Scripts.Countries.UIs
 
         private void HandleMoreViewBtnClick(ICultureShowUI obj)
         {
-            countryDetailCanvas.Show(obj);
-            countryInformationCanvas.Hide();
+            countryDetailObject.gameObject.SetActive(true);
+            countryInformationObject.gameObject.SetActive(false);
         }
         
         private void HandleExitBtnClick()
         {
-            countryDetailCanvas.Hide();
-            countryInformationCanvas.Show();
+            countryDetailObject.gameObject.SetActive(false);
+            countryInformationObject.gameObject.SetActive(true);
         }
     }
 }

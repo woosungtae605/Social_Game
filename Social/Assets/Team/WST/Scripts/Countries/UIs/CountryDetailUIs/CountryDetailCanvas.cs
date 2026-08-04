@@ -8,7 +8,6 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
     public class CountryDetailCanvas : MonoBehaviour
     {
         [Header("UIs")]
-        [SerializeField] private GameObject panelRoot;
         [SerializeField] private Button exitBtn;
 
         public event Action OnExitBtnClick; 
@@ -29,12 +28,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
 
         public void Show(ICultureShowUI iCultureShowUI)
         {
-            panelRoot.SetActive(true);
-        }
-
-        public void Hide()
-        {
-            panelRoot.SetActive(false);
+            
         }
     }
 }
