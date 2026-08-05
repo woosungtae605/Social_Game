@@ -489,9 +489,9 @@ RectTransform:
   m_Father: {fileID: 684402367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &130577233
 MonoBehaviour:
@@ -760,7 +760,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d19469e2de474d93db08a11c93d758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CulturePowerNumberStatus
+  countryManager: {fileID: 203035108}
+  spawnTransform: {fileID: 2099642243}
   culturePowerNumberStatusPrefab: {fileID: 2458226228112361454, guid: 9ebd817dcb161f848b9b0291a7fdaa25, type: 3}
+  initCount: 5
 --- !u!1 &203035106
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,9 +845,9 @@ RectTransform:
   m_Father: {fileID: 128900255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &215094381
 MonoBehaviour:
@@ -1243,7 +1246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.00042778504}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!21 &446095743
@@ -1770,7 +1773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &681927818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2009,7 +2012,7 @@ RectTransform:
   m_Father: {fileID: 642102866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3930,10 +3933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec93a27f22f447dd81adc21ed11c7c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.ShowPercentUI
-  showPercentUIPrefab: {fileID: -236005238965723855, guid: 158fb2262b3d7a74f88916b7636a9538, type: 3}
   countryManager: {fileID: 203035108}
-  showPercentUI: {fileID: 786804123}
   allCulturePower: {fileID: 915224529}
+  showPercentUIPrefab: {fileID: -236005238965723855, guid: 158fb2262b3d7a74f88916b7636a9538, type: 3}
+  spawnPos: {fileID: 786804124}
   initCount: 5
 --- !u!1 &1613582704
 GameObject:
@@ -4913,7 +4916,7 @@ RectTransform:
   m_Father: {fileID: 338125154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5160,7 +5163,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000029558263}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2099642244
 MonoBehaviour:

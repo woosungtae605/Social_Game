@@ -18,6 +18,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         public void Init()
         {
             exitBtn.onClick.AddListener(HandleExitBtnClick);
+            culturePowerNumberStatus.Init();
         }
 
         private void OnDestroy()
@@ -29,7 +30,10 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         {
             OnExitBtnClick?.Invoke();
         }
-        public void Hide() => gameObject.SetActive(false);
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
 
         public void Show(ICultureShowUI iCultureShowUI) // not complete
         {
