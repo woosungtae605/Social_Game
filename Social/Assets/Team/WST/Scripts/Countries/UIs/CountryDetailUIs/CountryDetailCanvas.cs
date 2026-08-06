@@ -25,7 +25,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         {
             exitBtn.onClick.AddListener(HandleExitBtnClick);
             culturePowerNumberStatus.Init(countryManager);
-            pieGraphUI.Init(countryManager);
+            pieGraphUI.Init();
         }
 
         private void OnDestroy()

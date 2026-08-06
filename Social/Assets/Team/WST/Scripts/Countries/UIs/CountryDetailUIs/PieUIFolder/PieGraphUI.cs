@@ -12,6 +12,9 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs.PieUIFolder
         [SerializeField] private Color ownColor;
         [SerializeField] private Color otherColor;
         
+        [Header("References")]
+        [SerializeField] private PiePercentPanel piePercentPanel;
+        
         [Header("UIs")]
         [SerializeField] private TextMeshProUGUI totalCulturePowerTxt;
         
@@ -20,15 +23,12 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs.PieUIFolder
         [SerializeField] private PieImagePrefab pieImage;
         [SerializeField] private int initCount = 2;
         
-        private CountryManager _countryManager;
         private GenericObjectPool<PieImagePrefab> _pool;
 
-        public void Init(CountryManager countryManager)
+        public void Init()
         {
-            _countryManager = countryManager;
             _pool = new GenericObjectPool<PieImagePrefab>(pieImage, spawnTransform, initCount);
         }
-
         public void Show(ICultureShowUI cultureShowUI)
         {
             _pool.Clear();
@@ -53,19 +53,21 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs.PieUIFolder
             
             int others = totalNum - own;
             float ownRatio = (float)own / totalNum;
+            float otherRatio = (float)others / totalNum;
             
             if (others > 0)
-            {
-                var otherSlice = _pool.Get();
-                otherSlice.SetFillAmount(1f, otherColor);
-                otherSlice.transform.SetAsFirstSibling();
-            }
-            
+                SpawnSlice(1f, otherColor, otherRatio, true);
             if (own > 0)
-            {
-                var ownSlice = _pool.Get();
-                ownSlice.SetFillAmount(ownRatio, ownColor);
-            }
+                SpawnSlice(ownRatio, ownColor, ownRatio, false);
+        }
+        
+        private void SpawnSlice(float fillAmount, Color color, float displayRatio, bool setAsFirstSibling)
+        {
+            PieImagePrefab slice = _pool.Get();
+            slice.Bind(piePercentPanel.Show, piePercentPanel.Hide);
+            slice.SetFillAmount(fillAmount, color, displayRatio);
+            if (setAsFirstSibling)
+                slice.transform.SetAsFirstSibling();
         }
     }
 }
