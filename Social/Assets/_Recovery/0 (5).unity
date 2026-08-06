@@ -1870,7 +1870,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CountryDetailCanvas
   culturePowerNumberStatus: {fileID: 164713000}
-  countryName: {fileID: 735549907}
   exitBtn: {fileID: 1458304317}
 --- !u!1 &684402366
 GameObject:
