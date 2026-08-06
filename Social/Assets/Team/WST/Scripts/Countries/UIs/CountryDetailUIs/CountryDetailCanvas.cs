@@ -1,5 +1,6 @@
 ﻿using System;
 using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CulturePowerNumberStatusFolder;
+using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.PieUIFolder;
 using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
 using TMPro;
 using UnityEngine;
@@ -9,8 +10,11 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
 {
     public class CountryDetailCanvas : MonoBehaviour
     {
+        [SerializeField] private CountryManager countryManager;
+            
         [Header("UI References")]
         [SerializeField] private CulturePowerNumberStatus culturePowerNumberStatus;
+        [SerializeField] private PieGraphUI pieGraphUI;
         
         [Header("UIs")]
         [SerializeField] private TextMeshProUGUI countryName;
@@ -20,7 +24,8 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         public void Init()
         {
             exitBtn.onClick.AddListener(HandleExitBtnClick);
-            culturePowerNumberStatus.Init();
+            culturePowerNumberStatus.Init(countryManager);
+            pieGraphUI.Init(countryManager);
         }
 
         private void OnDestroy()
@@ -40,7 +45,8 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         public void Show(ICultureShowUI iCultureShowUI) // not complete
         {
             countryName.text = iCultureShowUI.DisplayName;
-            culturePowerNumberStatus.Show(iCultureShowUI.CulturePowerDict);
+            culturePowerNumberStatus.Show(iCultureShowUI);
+            pieGraphUI.Show(iCultureShowUI);
             gameObject.SetActive(true);
         }
     }

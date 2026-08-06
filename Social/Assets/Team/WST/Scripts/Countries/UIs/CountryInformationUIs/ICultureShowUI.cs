@@ -11,5 +11,6 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
         IReadOnlyDictionary<CountryType, int> CulturePowerDict { get; }
         Sprite DisplaySprite { get; }
         Color DisplayColor { get; }
+        CountryType CountryType { get; }
     }
 }

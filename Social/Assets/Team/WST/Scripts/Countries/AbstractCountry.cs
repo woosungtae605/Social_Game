@@ -17,6 +17,7 @@ namespace Team.WST.Scripts.Countries
         public IReadOnlyDictionary<CountryType, int> CulturePowerDict => _countriesCulturePowerDict;
         public Sprite DisplaySprite => CountrySO.CountrySprite;
         public Color DisplayColor => CountrySO.CountryColor;
+        public CountryType CountryType => CountrySO.CountryType;
 
         public void Init()
         {
