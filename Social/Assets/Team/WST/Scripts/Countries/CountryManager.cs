@@ -22,12 +22,20 @@ namespace Team.WST.Scripts.Countries
                 country.Init();
             }
         }
-
-        private void AddCountryCulturePower(CountryType sentCountryType, CountryType addCountryType, int power)
+        
+        public void AddCountryCulturePower(CountryType targetCountryType, CountryType addCountryType, int power)
         {
-            if (TryGetCountry(sentCountryType, out AbstractCountry country))
+            if (TryGetCountry(targetCountryType, out AbstractCountry country))
             {
                 country.AddCulturePower(addCountryType, power);
+            }
+        }
+
+        public void AddCountryHistory(CountryType countryType, CultureEventSO history)
+        {
+            if (TryGetCountry(countryType, out AbstractCountry country))
+            {
+                country.AddCultureHistory(history);
             }
         }
         

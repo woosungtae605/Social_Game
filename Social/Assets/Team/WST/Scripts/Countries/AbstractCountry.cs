@@ -10,16 +10,18 @@ namespace Team.WST.Scripts.Countries
     {
         [field: SerializeField] public CountrySO CountrySO { get; private set; }
         private Dictionary<CountryType, int> _countriesCulturePowerDict = new();
+        private List<CultureEventSO> _cultureHistories = new();
         private int _allCulturePower = 0;
 
         public string DisplayName => CountrySO.CountryName;
         public int AllCulturePower => _allCulturePower;
         public IReadOnlyDictionary<CountryType, int> CulturePowerDict => _countriesCulturePowerDict;
+        public IReadOnlyList<CultureEventSO> CultureHistory => _cultureHistories;
         public Sprite DisplaySprite => CountrySO.CountrySprite;
         public Color DisplayColor => CountrySO.CountryColor;
         public CountryType CountryType => CountrySO.CountryType;
 
-        public void Init()
+        public virtual void Init()
         {
             AddCulturePower(CountrySO.CountryType, CountrySO.InitCulturalPower);
         }
@@ -35,6 +37,11 @@ namespace Team.WST.Scripts.Countries
                 _countriesCulturePowerDict[countryType] = power;
             }
             _allCulturePower += power;
+        }
+
+        public void AddCultureHistory(CultureEventSO cultureHistorySo)
+        {
+            _cultureHistories.Add(cultureHistorySo);
         }
     }
 }

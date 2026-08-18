@@ -10,5 +10,6 @@ namespace Team.WST.Scripts.Countries.Informations
         [field: SerializeField] public Sprite CountrySprite { get; private set; }
         [field: SerializeField] public int InitCulturalPower { get; private set; }
         [field: SerializeField] public Color CountryColor { get; private set; }
+        [field: SerializeField] public CultureEventSO[] CultureEvents { get; private set; }
     }
 }

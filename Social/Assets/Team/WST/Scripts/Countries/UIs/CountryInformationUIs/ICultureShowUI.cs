@@ -9,6 +9,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
         public string DisplayName { get; }
         int AllCulturePower { get; }
         IReadOnlyDictionary<CountryType, int> CulturePowerDict { get; }
+        IReadOnlyList<CultureEventSO> CultureHistory { get; }
         Sprite DisplaySprite { get; }
         Color DisplayColor { get; }
         CountryType CountryType { get; }
