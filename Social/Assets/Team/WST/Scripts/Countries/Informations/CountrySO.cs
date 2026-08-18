@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Team.WST.Scripts.Countries.Informations.Histories;
+using UnityEngine;
 
 namespace Team.WST.Scripts.Countries.Informations
 {
@@ -10,6 +11,6 @@ namespace Team.WST.Scripts.Countries.Informations
         [field: SerializeField] public Sprite CountrySprite { get; private set; }
         [field: SerializeField] public int InitCulturalPower { get; private set; }
         [field: SerializeField] public Color CountryColor { get; private set; }
-        [field: SerializeField] public CultureEventSO[] CultureEvents { get; private set; }
+        [field: SerializeField] public HistoryEventSO[] CultureHistoryEvents { get; private set; }
     }
 }

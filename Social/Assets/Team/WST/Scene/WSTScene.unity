@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 5541088}
   - component: {fileID: 5541087}
   - component: {fileID: 5541086}
+  - component: {fileID: 5541089}
   m_Layer: 0
   m_Name: Korea
   m_TagString: Untagged
@@ -212,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Country
   <CountrySO>k__BackingField: {fileID: 11400000, guid: af1c9132ab9932c4f9a60d40c97bf7db, type: 2}
+  countriesPolicy: {fileID: 5541089}
 --- !u!212 &5541088
 SpriteRenderer:
   serializedVersion: 2
@@ -271,6 +273,18 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5541089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2347c3d2713c4088b987990470851298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.CountriesPolicy
 --- !u!1 &68993459
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +855,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 723913642}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.45524332
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2228,7 +2242,7 @@ RectTransform:
   m_Father: {fileID: 642102866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.45524332}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3758,6 +3772,7 @@ GameObject:
   - component: {fileID: 1477015553}
   - component: {fileID: 1477015555}
   - component: {fileID: 1477015556}
+  - component: {fileID: 1477015557}
   m_Layer: 0
   m_Name: China
   m_TagString: Untagged
@@ -3852,6 +3867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Country
   <CountrySO>k__BackingField: {fileID: 11400000, guid: 7da5e4f636b28b5498cad50d4a8756b9, type: 2}
+  countriesPolicy: {fileID: 1477015557}
 --- !u!61 &1477015556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3898,6 +3914,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1477015557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477015552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2347c3d2713c4088b987990470851298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.CountriesPolicy
 --- !u!1 &1483407819
 GameObject:
   m_ObjectHideFlags: 0
