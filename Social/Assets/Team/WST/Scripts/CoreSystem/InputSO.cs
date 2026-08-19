@@ -8,6 +8,7 @@ namespace Team.WST.Scripts.CoreSystem
     public class InputSO : ScriptableObject, Controls.IPlayerActions
     {
         public Vector2 MousePos { get; private set; }
+        public event Action OnLeftClickAction;
 
         private Controls _controls;
         private void OnEnable()
@@ -29,6 +30,12 @@ namespace Team.WST.Scripts.CoreSystem
         public void OnMousePos(InputAction.CallbackContext context)
         {
             MousePos = context.ReadValue<Vector2>();
+        }
+
+        public void OnMouseLeftClick(InputAction.CallbackContext context)
+        {
+            if(context.performed)
+                OnLeftClickAction?.Invoke();
         }
     }
 }
