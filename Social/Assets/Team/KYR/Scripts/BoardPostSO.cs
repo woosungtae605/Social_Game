@@ -1,19 +1,22 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BoardPost", menuName = "Board/Board Post")]
-public class BoardPostSO : ScriptableObject
+namespace Team.KYR.Scripts
 {
-    [SerializeField] private string writer;
-    [SerializeField] private string title;
-    [SerializeField] private int initialViewCount;
-
-    public string Writer => writer;
-    public string Title => title;
-    public int InitialViewCount => initialViewCount;
-
-    private void OnValidate()
+    [CreateAssetMenu(fileName = "BoardPost", menuName = "Board/Board Post")]
+    public class BoardPostSo : ScriptableObject
     {
-        if (initialViewCount < 0)
-            initialViewCount = 0;
+        [SerializeField] private string writer;
+        [SerializeField] private string title;
+        [SerializeField] private int initialViewCount;
+
+        public string Writer => writer;
+        public string Title => title;
+        public int InitialViewCount => initialViewCount;
+
+        private void OnValidate()
+        {
+            if (initialViewCount < 0)
+                initialViewCount = 0;
+        }
     }
 }

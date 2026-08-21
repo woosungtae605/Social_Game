@@ -1,37 +1,40 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoardPanelController : MonoBehaviour
+namespace Team.KYR.Scripts
 {
-    [SerializeField] private GameObject boardPanel;
-    [SerializeField] private Button openButton;
-    [SerializeField] private Button closeButton;
-
-    private void Awake()
+    public class BoardPanelController : MonoBehaviour
     {
-        boardPanel.SetActive(false);
+        [SerializeField] private GameObject boardPanel;
+        [SerializeField] private Button openButton;
+        [SerializeField] private Button closeButton;
 
-        openButton.onClick.AddListener(OpenBoard);
+        private void Awake()
+        {
+            boardPanel.SetActive(false);
 
-        if (closeButton != null)
-            closeButton.onClick.AddListener(CloseBoard);
-    }
+            openButton.onClick.AddListener(OpenBoard);
 
-    private void OnDestroy()
-    {
-        openButton.onClick.RemoveListener(OpenBoard);
+            if (closeButton != null)
+                closeButton.onClick.AddListener(CloseBoard);
+        }
 
-        if (closeButton != null)
-            closeButton.onClick.RemoveListener(CloseBoard);
-    }
+        private void OnDestroy()
+        {
+            openButton.onClick.RemoveListener(OpenBoard);
 
-    private void OpenBoard()
-    {
-        boardPanel.SetActive(true);
-    }
+            if (closeButton != null)
+                closeButton.onClick.RemoveListener(CloseBoard);
+        }
 
-    private void CloseBoard()
-    {
-        boardPanel.SetActive(false);
+        private void OpenBoard()
+        {
+            boardPanel.SetActive(true);
+        }
+
+        private void CloseBoard()
+        {
+            boardPanel.SetActive(false);
+        }
     }
 }

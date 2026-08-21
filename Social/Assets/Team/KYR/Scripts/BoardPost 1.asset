@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoardPostSO
   writer: "\u3148\u3147\u3141"
   title: "\uC800 \uB0A8\uC790\uAC00 \uC88B\uC740\uB370... \uC815\uC0C1\uC778\uAC00\uC694?"
-  initialViewCount: 99
+  initialViewCount: 91
+
