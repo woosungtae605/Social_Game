@@ -32,16 +32,8 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs.PieUIFolder
         public void Show(ICultureShowUI cultureShowUI)
         {
             _pool.Clear();
-
-            var culturePowerDict = cultureShowUI.CulturePowerDict;
             
-            int totalNum = 0;
-
-            foreach (int cultureDict in culturePowerDict.Values)
-            {
-                totalNum += cultureDict;
-            }
-            
+            int totalNum = cultureShowUI.AllCulturePower;
             totalCulturePowerTxt.text = totalNum.ToString();
             
             if (totalNum <= 0)

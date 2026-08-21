@@ -8,9 +8,14 @@ namespace Team.WST.Scripts.Countries.Informations.Histories
         [field: SerializeField] public int Amount { get; private set; }
         [field: SerializeField] public float Radius { get; private set; }
         
-        public override void Apply()
+        public override void Apply(AbstractCountry abstractCountry)
         {
             
+        }
+
+        public override bool CanApply(AbstractCountry abstractCountry)
+        {
+            return true;
         }
     }
 }
