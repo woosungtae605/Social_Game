@@ -1,5 +1,6 @@
 ﻿using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.UIs;
+using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
 
 namespace Team.WST.Scripts.Events
 {

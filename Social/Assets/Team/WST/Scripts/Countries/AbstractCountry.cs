@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Team.WST.Scripts.Countries.Informations;
 using Team.WST.Scripts.Countries.UIs;
+using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries
@@ -16,6 +17,7 @@ namespace Team.WST.Scripts.Countries
         public IReadOnlyDictionary<CountryType, int> CulturePowerDict => _countriesCulturePowerDict;
         public Sprite DisplaySprite => CountrySO.CountrySprite;
         public Color DisplayColor => CountrySO.CountryColor;
+        public CountryType CountryType => CountrySO.CountryType;
 
         public void Init()
         {

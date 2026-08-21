@@ -1,34 +1,39 @@
-﻿using System;
-using Team.WST.Scripts.CoreSystem;
-using Team.WST.Scripts.Events;
-using TMPro;
+﻿using Team.WST.Scripts.Countries.UIs.CountryDetailUIs;
+using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries.UIs
 {
     public class CountryCanvas : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI countryName;
-        [SerializeField] private TextMeshProUGUI allCulturePower;
-        [SerializeField] private ShowPercentUI showPercent;
+        [SerializeField] private CountryDetailCanvas countryDetailCanvas;
+        [SerializeField] private CountryInformationCanvas countryInformationCanvas;
+
         private void Awake()
         {
-            Bus<CultureSensorUIEvent>.OnEvent += HandleCultureSensorUI;
+            countryDetailCanvas.Init();
+            countryInformationCanvas.Init();
+
+            countryDetailCanvas.OnExitBtnClick += HandleExitBtnClick;
+            countryInformationCanvas.OnMoreViewBtnClick += HandleMoreViewBtnClick;
         }
 
         private void OnDestroy()
         {
-            Bus<CultureSensorUIEvent>.OnEvent -= HandleCultureSensorUI;
+            countryDetailCanvas.OnExitBtnClick -= HandleExitBtnClick;
+            countryInformationCanvas.OnMoreViewBtnClick -= HandleMoreViewBtnClick;
         }
 
-        private void HandleCultureSensorUI(CultureSensorUIEvent evt)
+        private void HandleMoreViewBtnClick(ICultureShowUI obj)
         {
-            if (evt.ShowUI == null)
-                return;
-
-            allCulturePower.text = evt.ShowUI.AllCulturePower.ToString();
-            countryName.text = evt.ShowUI.DisplayName;
-            showPercent.Show(evt.ShowUI.CulturePowerDict);
+            countryDetailCanvas.Show(obj);
+            countryInformationCanvas.Hide();
+        }
+        
+        private void HandleExitBtnClick()
+        {
+            countryDetailCanvas.Hide();
+            countryInformationCanvas.Show();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.UIs;
+using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
 using Team.WST.Scripts.Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
