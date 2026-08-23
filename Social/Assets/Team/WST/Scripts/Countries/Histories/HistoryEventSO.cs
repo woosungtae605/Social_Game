@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Team.WST.Scripts.Countries.Informations.Histories
+namespace Team.WST.Scripts.Countries.Histories
 {
     public abstract class HistoryEventSO : ScriptableObject
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Team.WST.Scripts.Countries.Histories;
 using Team.WST.Scripts.Countries.Informations;
-using Team.WST.Scripts.Countries.Informations.Histories;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
