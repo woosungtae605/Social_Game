@@ -10,40 +10,69 @@ namespace Team.KYR.Scripts
         [SerializeField] private Transform postContent;
         [SerializeField] private BoardPostItem postItemPrefab;
 
-        [Header("Initially Unlocked Posts")]
-        [SerializeField] private BoardPostSo[] initialPosts;
+        [Header("Boards")]
+        [SerializeField] private BoardSo[] boards;
 
         private readonly List<BoardPostData> unlockedPosts = new List<BoardPostData>();
 
+        private BoardSo currentBoard;
         private bool showConceptOnly;
 
-        private void Start()
+        public BoardSo[] Boards
         {
-            for (int i = 0; i < initialPosts.Length; i++)
+            get
             {
-                if (initialPosts[i] == null)
+                if (boards == null)
+                    return new BoardSo[0];
+
+                return boards;
+            }
+        }
+
+        private void Awake()
+        {
+            for (int i = 0; i < Boards.Length; i++)
+            {
+                BoardSo board = Boards[i];
+                if (board == null)
                     continue;
 
-                TryAddPost(initialPosts[i], DateTime.Now);
+                BoardPostSo[] posts = board.InitialPosts;
+                for (int j = 0; j < posts.Length; j++)
+                    TryAddPost(board, posts[j], DateTime.Now);
             }
+        }
 
-            ShowAllPosts();
+        public void SelectBoard(BoardSo board)
+        {
+            currentBoard = board;
+            showConceptOnly = false;
+            RefreshPostList();
+        }
+
+        public void UnlockPost(BoardSo board, BoardPostSo postSo)
+        {
+            if (!TryAddPost(board, postSo, DateTime.Now))
+                return;
+
+            RefreshPostList();
+        }
+
+        public void UnlockPost(BoardSo board, BoardPostSo postSo, DateTime createdAt)
+        {
+            if (!TryAddPost(board, postSo, createdAt))
+                return;
+
+            RefreshPostList();
         }
 
         public void UnlockPost(BoardPostSo postSo)
         {
-            if (!TryAddPost(postSo, DateTime.Now))
+            BoardSo board = FindBoardForPost(postSo);
+            if (board == null)
                 return;
 
-            RefreshPostList();
-        }
-
-        public void UnlockPost(BoardPostSo postSo, DateTime createdAt)
-        {
-            if (!TryAddPost(postSo, createdAt))
-                return;
-
-            RefreshPostList();
+            UnlockPost(board, postSo);
         }
 
         public void DeletePost(BoardPostData post)
@@ -75,37 +104,64 @@ namespace Team.KYR.Scripts
             RefreshPostList();
         }
 
-        private bool TryAddPost(BoardPostSo postSo, DateTime createdAt)
+        private bool TryAddPost(BoardSo board, BoardPostSo postSo, DateTime createdAt)
         {
-            if (postSo == null || IsPostUnlocked(postSo))
+            if (board == null || postSo == null || IsPostUnlocked(board, postSo))
                 return false;
 
-            BoardPostData postData = new BoardPostData(postSo, createdAt);
+            BoardPostData postData = new BoardPostData(board, postSo, createdAt);
             unlockedPosts.Add(postData);
-
             return true;
         }
 
-        private bool IsPostUnlocked(BoardPostSo postSo)
+        private bool IsPostUnlocked(BoardSo board, BoardPostSo postSo)
         {
             for (int i = 0; i < unlockedPosts.Count; i++)
             {
-                if (unlockedPosts[i].Definition == postSo)
+                BoardPostData post = unlockedPosts[i];
+                if (post.Board == board && post.Definition == postSo)
                     return true;
             }
 
             return false;
         }
 
+        private BoardSo FindBoardForPost(BoardPostSo postSo)
+        {
+            if (postSo == null)
+                return null;
+
+            for (int i = 0; i < Boards.Length; i++)
+            {
+                BoardSo board = Boards[i];
+                if (board == null)
+                    continue;
+
+                BoardPostSo[] posts = board.InitialPosts;
+                for (int j = 0; j < posts.Length; j++)
+                {
+                    if (posts[j] == postSo)
+                        return board;
+                }
+            }
+
+            return null;
+        }
+
         private void RefreshPostList()
         {
             ClearPostList();
+
+            if (currentBoard == null)
+                return;
 
             List<BoardPostData> visiblePosts = new List<BoardPostData>();
 
             for (int i = 0; i < unlockedPosts.Count; i++)
             {
                 BoardPostData post = unlockedPosts[i];
+                if (post.Board != currentBoard)
+                    continue;
 
                 if (!showConceptOnly || post.IsConcept)
                     visiblePosts.Add(post);
