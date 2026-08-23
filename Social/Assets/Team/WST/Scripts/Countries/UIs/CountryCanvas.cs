@@ -1,5 +1,7 @@
-﻿using Team.WST.Scripts.Countries.UIs.CountryDetailUIs;
+﻿using Team.WST.Scripts.CoreSystem;
+using Team.WST.Scripts.Countries.UIs.CountryDetailUIs;
 using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
+using Team.WST.Scripts.Events;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries.UIs
@@ -8,34 +10,49 @@ namespace Team.WST.Scripts.Countries.UIs
     {
         [SerializeField] private CountryDetailCanvas countryDetailCanvas;
         [SerializeField] private CountryInformationCanvas countryInformationCanvas;
-        [SerializeField] private GameObject countryDetailObject;
-        [SerializeField] private GameObject countryInformationObject;
 
+        private ICultureShowUI _current;
+        
         private void Awake()
         {
             countryDetailCanvas.Init();
             countryInformationCanvas.Init();
 
+            Bus<CultureSensorUIEvent>.OnEvent += HandleCountryClicked;
             countryDetailCanvas.OnExitBtnClick += HandleExitBtnClick;
             countryInformationCanvas.OnMoreViewBtnClick += HandleMoreViewBtnClick;
         }
 
         private void OnDestroy()
         {
-            countryInformationCanvas.OnMoreViewBtnClick -= HandleMoreViewBtnClick;
+            Bus<CultureSensorUIEvent>.OnEvent -= HandleCountryClicked;
             countryDetailCanvas.OnExitBtnClick -= HandleExitBtnClick;
+            countryInformationCanvas.OnMoreViewBtnClick -= HandleMoreViewBtnClick;
+        }
+        
+        private void HandleCountryClicked(CultureSensorUIEvent evt)
+        {
+            if (evt.ShowUI == null)
+                return;
+            
+            _current = evt.ShowUI; 
+            countryInformationCanvas.Show(_current);
         }
 
-        private void HandleMoreViewBtnClick(ICultureShowUI obj)
+        private void HandleMoreViewBtnClick()
         {
-            countryDetailObject.gameObject.SetActive(true);
-            countryInformationObject.gameObject.SetActive(false);
+            if (_current == null)
+                return;
+            
+            countryDetailCanvas.Show(_current);
+            countryInformationCanvas.Hide();
         }
         
         private void HandleExitBtnClick()
         {
-            countryDetailObject.gameObject.SetActive(false);
-            countryInformationObject.gameObject.SetActive(true);
+            countryDetailCanvas.Hide();
+            if (_current != null)
+                countryInformationCanvas.Show(_current);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.Informations;
 using TMPro;
 using UnityEngine;
@@ -7,58 +8,26 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
 {
     public class ShowPercentUI : MonoBehaviour
     {
-        [SerializeField] private CulturePercentElement showPercentUIPrefab;
         [SerializeField] private CountryManager countryManager;
 
         [Header("UI")] 
-        [SerializeField] private GameObject showPercentUI;
         [SerializeField] private  TextMeshProUGUI allCulturePower;
 
         [Header("pooling")] 
+        [SerializeField] private CulturePercentElement showPercentUIPrefab;
+        [SerializeField] private Transform spawnPos;
         [SerializeField] private int initCount;
-
-        private readonly Stack<CulturePercentElement> _poolStack = new();
-        private readonly List<CulturePercentElement> _activeList = new();
+        
+        private GenericObjectPool<CulturePercentElement> _pool;
 
         public void Init()
         {
-            for (int i = 0; i < initCount; i++)
-            {
-                CreatePoolObject();
-            }
-        }
-
-        private CulturePercentElement CreatePoolObject()
-        {
-            CulturePercentElement percentUI = Instantiate(showPercentUIPrefab, showPercentUI.transform);
-            percentUI.gameObject.SetActive(false);
-
-            _poolStack.Push(percentUI);
-            return percentUI;
-        }
-        
-        private CulturePercentElement GetPoolObject()
-        {
-            if (_poolStack.Count <= 0)
-                CreatePoolObject();
-
-            CulturePercentElement percentUI = _poolStack.Pop();
-            percentUI.gameObject.SetActive(true);
-            
-            _activeList.Add(percentUI);
-
-            return percentUI;
-        }
-        
-        public void ReturnPoolObject(CulturePercentElement percentUI)
-        {
-            percentUI.gameObject.SetActive(false);
-            _poolStack.Push(percentUI);
+            _pool = new GenericObjectPool<CulturePercentElement>(showPercentUIPrefab, spawnPos, initCount);
         }
         
         public void Show(IReadOnlyDictionary<CountryType, int> culturePowerDict)
         {
-            Clear();
+            _pool.Clear();
 
             int totalPower = 0;
 
@@ -78,19 +47,9 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
                 if (pair.Value <= 0)
                     continue;
 
-                CulturePercentElement percentUI = GetPoolObject();
+                CulturePercentElement percentUI = _pool.Get(); 
                 percentUI.SetData((float)pair.Value / totalPower, GetCountryColor(pair.Key));
             }
-        }
-
-        private void Clear()
-        {
-            for (int i = _activeList.Count - 1; i >= 0; i--)
-            {
-                ReturnPoolObject(_activeList[i]);
-            }
-
-            _activeList.Clear();
         }
 
         private Color GetCountryColor(CountryType countryType)

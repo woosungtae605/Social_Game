@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Team.WST.Scripts.Countries.Histories;
 using Team.WST.Scripts.Countries.Informations;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Team.WST.Scripts.Countries
     public class CountryManager : MonoBehaviour
     {
         private Dictionary<CountryType, AbstractCountry> _countriesDict;
+        public IReadOnlyDictionary<CountryType, AbstractCountry> CountriesDict => _countriesDict;
+        
         private void Awake()
         {
             Init();
@@ -22,12 +25,20 @@ namespace Team.WST.Scripts.Countries
                 country.Init();
             }
         }
-
-        private void AddCountryCulturePower(CountryType sentCountryType, CountryType addCountryType, int power)
+        
+        public void AddCountryCulturePower(CountryType targetCountryType, CountryType addCountryType, int power)
         {
-            if (TryGetCountry(sentCountryType, out AbstractCountry country))
+            if (TryGetCountry(targetCountryType, out AbstractCountry country))
             {
                 country.AddCulturePower(addCountryType, power);
+            }
+        }
+
+        public void AddCountryHistory(CountryType countryType, HistoryEventSO history)
+        {
+            if (TryGetCountry(countryType, out AbstractCountry country))
+            {
+                country.AddCultureHistory(history);
             }
         }
         
