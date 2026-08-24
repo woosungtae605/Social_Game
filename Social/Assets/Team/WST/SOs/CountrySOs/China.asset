@@ -17,3 +17,6 @@ MonoBehaviour:
   <CountrySprite>k__BackingField: {fileID: 0}
   <InitCulturalPower>k__BackingField: 1000
   <CountryColor>k__BackingField: {r: 1, g: 0.17133528, b: 0, a: 1}
+  <CultureHistoryEvents>k__BackingField: []
+  <SpreadRadius>k__BackingField: 10
+  <SpreadAmount>k__BackingField: 7

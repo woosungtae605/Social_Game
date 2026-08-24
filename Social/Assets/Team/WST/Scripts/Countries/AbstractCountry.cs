@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.Histories;
 using Team.WST.Scripts.Countries.Informations;
 using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
+using Team.WST.Scripts.Events;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries
@@ -48,6 +50,16 @@ namespace Team.WST.Scripts.Countries
         public void AddCultureHistory(HistoryEventSO historyHistorySo)
         {
             _activeHistoryController.RaiseCultureHistoryEvent(historyHistorySo);
+        }
+        
+        public void Spread()
+        {
+            Spread(CountrySO.SpreadRadius, CountrySO.SpreadAmount);
+        }
+        
+        public void Spread(float radius, int amount)
+        {
+            Bus<CultureSpreadEvent>.RaiseEvent(new CultureSpreadEvent(this, radius, amount));
         }
     }
 }
