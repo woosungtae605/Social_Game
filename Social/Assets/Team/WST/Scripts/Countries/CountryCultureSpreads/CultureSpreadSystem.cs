@@ -21,6 +21,7 @@ namespace Team.WST.Scripts.Countries.CountryCultureSpreads
         {
             if (evt.Source == null || countryManager == null)
                 return;
+            
             SpreadFrom(evt.Source, evt.Radius, evt.Amount);
         }
         private void SpreadFrom(AbstractCountry source, float radius, int amount)
@@ -33,13 +34,16 @@ namespace Team.WST.Scripts.Countries.CountryCultureSpreads
             
             foreach (AbstractCountry other in countryManager.CountriesDict.Values)
             {
-                if (other == source)
+                float distance = Vector3.Distance(origin, other.transform.position);
+                if (distance > radius)
+                    continue;
+
+                float ratio  = 1 - distance / radius;
+                int appliedAmount = Mathf.RoundToInt(amount * ratio);
+                if (appliedAmount <= 0)
                     continue;
                 
-                if (Vector3.Distance(origin, other.transform.position) > radius)
-                    continue;
-                
-                countryManager.AddCountryCulturePower(other.CountryType, sourceType, amount);
+                countryManager.AddCountryCulturePower(other.CountryType, sourceType, appliedAmount);
             }
         }
     }
