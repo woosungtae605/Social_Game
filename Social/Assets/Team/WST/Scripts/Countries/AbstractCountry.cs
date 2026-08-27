@@ -17,6 +17,10 @@ namespace Team.WST.Scripts.Countries
         private ActiveHistoryController _activeHistoryController;
         
         private int _allCulturePower = 0;
+        
+        public event Action<CountryType, int> OnAddCulturePower;
+        public event Action<HistoryEventSO> OnAddCultureHistory;
+        public event Action<float, int> OnSpread;
 
         #region interface ICultureShowUI
 
@@ -37,6 +41,7 @@ namespace Team.WST.Scripts.Countries
 
         public void AddCulturePower(CountryType countryType, int  power)
         {
+            OnAddCulturePower?.Invoke(countryType, power);
             if (_countriesCulturePowerDict.ContainsKey(countryType))
             {
                 _countriesCulturePowerDict[countryType] += power;
@@ -50,6 +55,7 @@ namespace Team.WST.Scripts.Countries
 
         public void AddCultureHistory(HistoryEventSO historyHistorySo)
         {
+            OnAddCultureHistory?.Invoke(historyHistorySo);
             _activeHistoryController.RaiseCultureHistoryEvent(historyHistorySo);
         }
         
@@ -60,6 +66,7 @@ namespace Team.WST.Scripts.Countries
         
         public void Spread(float radius, int amount)
         {
+            OnSpread?.Invoke(radius, amount);
             Bus<CultureSpreadEvent>.RaiseEvent(new CultureSpreadEvent(this, radius, amount));
         }
     }
