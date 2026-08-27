@@ -1,36 +1,64 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public class BoardPostData
+namespace Team.KYR.Scripts
 {
-    [SerializeField] private BoardPostSO definition;
-    [SerializeField] private int viewCount;
-    [SerializeField] private long createdAtTicks;
-    [SerializeField] private bool isConcept;
-
-    public BoardPostSO Definition => definition;
-    public string Writer => definition.Writer;
-    public string Title => definition.Title;
-    public int ViewCount => viewCount;
-    public DateTime CreatedAt => new DateTime(createdAtTicks);
-    public bool IsConcept => isConcept;
-
-    public BoardPostData(BoardPostSO definition, DateTime createdAt)
+    [Serializable]
+    public class BoardPostData
     {
-        this.definition = definition;
-        viewCount = definition.InitialViewCount;
-        createdAtTicks = createdAt.Ticks;
-        isConcept = false;
-    }
+        [SerializeField] private BoardSo board;
+        [SerializeField] private BoardPostSo definition;
+        [SerializeField] private int viewCount;
+        [SerializeField] private long createdAtTicks;
+        [SerializeField] private bool isConcept;
 
-    public void ToggleConcept()
-    {
-        isConcept = !isConcept;
-    }
+        public BoardSo Board => board;
+        public BoardPostSo Definition => definition;
+        public string Writer => definition.Writer;
+        public string Title => definition.Title;
+        public int ViewCount => viewCount;
+        public DateTime CreatedAt => new DateTime(createdAtTicks);
+        public bool IsConcept => isConcept;
 
-    public void IncreaseViewCount()
-    {
-        viewCount++;
+        public string Body
+        {
+            get
+            {
+                if (definition == null || definition.Content == null)
+                    return string.Empty;
+
+                return definition.Content.Body;
+            }
+        }
+
+        public Sprite[] Images
+        {
+            get
+            {
+                if (definition == null || definition.Content == null)
+                    return new Sprite[0];
+
+                return definition.Content.Images;
+            }
+        }
+
+        public BoardPostData(BoardSo board, BoardPostSo definition, DateTime createdAt)
+        {
+            this.board = board;
+            this.definition = definition;
+            viewCount = definition.InitialViewCount;
+            createdAtTicks = createdAt.Ticks;
+            isConcept = false;
+        }
+
+        public void ToggleConcept()
+        {
+            isConcept = !isConcept;
+        }
+
+        public void IncreaseViewCount()
+        {
+            viewCount++;
+        }
     }
 }
