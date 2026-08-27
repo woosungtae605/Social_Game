@@ -15,4 +15,5 @@ MonoBehaviour:
   writer: "\u3148\u3147\u3141"
   title: "\uC800 \uB0A8\uC790\uAC00 \uC88B\uC740\uB370... \uC815\uC0C1\uC778\uAC00\uC694?"
   initialViewCount: 91
+  content: {fileID: 11400000, guid: d1f0a9b8c7e66543d2f1a0b9c8d7e6f5, type: 2}
 

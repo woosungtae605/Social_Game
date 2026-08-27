@@ -20,6 +20,28 @@ namespace Team.KYR.Scripts
         public DateTime CreatedAt => new DateTime(createdAtTicks);
         public bool IsConcept => isConcept;
 
+        public string Body
+        {
+            get
+            {
+                if (definition == null || definition.Content == null)
+                    return string.Empty;
+
+                return definition.Content.Body;
+            }
+        }
+
+        public Sprite[] Images
+        {
+            get
+            {
+                if (definition == null || definition.Content == null)
+                    return new Sprite[0];
+
+                return definition.Content.Images;
+            }
+        }
+
         public BoardPostData(BoardSo board, BoardPostSo definition, DateTime createdAt)
         {
             this.board = board;

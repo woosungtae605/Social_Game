@@ -10,6 +10,7 @@ namespace Team.KYR.Scripts
         [SerializeField] private Button deleteButton;
         [SerializeField] private Button conceptToggleButton;
         [SerializeField] private TMP_Text conceptToggleText;
+        [SerializeField] private Button openButton;
 
         [Header("Post Data")]
         [SerializeField] private TMP_Text writerText;
@@ -24,6 +25,17 @@ namespace Team.KYR.Scripts
         {
             deleteButton.onClick.AddListener(DeletePost);
             conceptToggleButton.onClick.AddListener(ToggleConcept);
+
+            if (openButton == null)
+                openButton = GetComponent<Button>();
+
+            if (openButton == null)
+            {
+                openButton = gameObject.AddComponent<Button>();
+                openButton.targetGraphic = GetComponent<Image>();
+            }
+
+            openButton.onClick.AddListener(OpenPost);
         }
 
         public void Setup(BoardPostData data, BoardManager manager)
@@ -42,6 +54,15 @@ namespace Team.KYR.Scripts
         private void UpdateConceptButton()
         {
             conceptToggleText.text = postData.IsConcept ? "↓" : "✓";
+        }
+
+        private void OpenPost()
+        {
+            if (postData == null || boardManager == null)
+                return;
+
+            boardManager.OpenPost(postData);
+            viewCountText.text = postData.ViewCount.ToString("N0");
         }
 
         private void DeletePost()
@@ -64,6 +85,9 @@ namespace Team.KYR.Scripts
         {
             deleteButton.onClick.RemoveListener(DeletePost);
             conceptToggleButton.onClick.RemoveListener(ToggleConcept);
+
+            if (openButton != null)
+                openButton.onClick.RemoveListener(OpenPost);
         }
     }
 }

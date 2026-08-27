@@ -8,10 +8,12 @@ namespace Team.KYR.Scripts
         [SerializeField] private string writer;
         [SerializeField] private string title;
         [SerializeField] private int initialViewCount;
+        [SerializeField] private BoardPostContentSo content;
 
         public string Writer => writer;
         public string Title => title;
         public int InitialViewCount => initialViewCount;
+        public BoardPostContentSo Content => content;
 
         private void OnValidate()
         {

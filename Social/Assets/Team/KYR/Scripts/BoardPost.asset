@@ -15,3 +15,4 @@ MonoBehaviour:
   writer: "\uC7A5\uC900\uBBFC"
   title: "\uD55C\uB0A8 \uC720\uCDA9\uC774 \uC790\uAFB8 \uBE44\uBCBC --"
   initialViewCount: 12
+  content: {fileID: 11400000, guid: c0e9f8a7b6d55432c1e0f9a8b7c6d5e4, type: 2}

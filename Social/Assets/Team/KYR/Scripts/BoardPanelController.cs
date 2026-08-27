@@ -9,6 +9,7 @@ namespace Team.KYR.Scripts
         [SerializeField] private Button openButton;
         [SerializeField] private Button closeButton;
         [SerializeField] private BoardManager boardManager;
+        [SerializeField] private BoardPostDetailView postDetailView;
 
         private void Awake()
         {
@@ -16,6 +17,9 @@ namespace Team.KYR.Scripts
 
             if (boardManager == null)
                 boardManager = GetComponent<BoardManager>();
+
+            if (postDetailView == null)
+                postDetailView = GetComponent<BoardPostDetailView>();
 
             if (closeButton != null)
                 closeButton.onClick.AddListener(CloseBoard);
@@ -27,6 +31,9 @@ namespace Team.KYR.Scripts
         {
             if (board == null || boardManager == null)
                 return;
+
+            if (postDetailView != null)
+                postDetailView.Hide();
 
             boardManager.SelectBoard(board);
             boardPanel.SetActive(true);
@@ -85,6 +92,12 @@ namespace Team.KYR.Scripts
 
         private void CloseBoard()
         {
+            if (postDetailView != null && postDetailView.IsOpen)
+            {
+                postDetailView.Hide();
+                return;
+            }
+
             boardPanel.SetActive(false);
         }
 

@@ -9,6 +9,7 @@ namespace Team.KYR.Scripts
         [Header("Post UI")]
         [SerializeField] private Transform postContent;
         [SerializeField] private BoardPostItem postItemPrefab;
+        [SerializeField] private BoardPostDetailView postDetailView;
 
         [Header("Boards")]
         [SerializeField] private BoardSo[] boards;
@@ -31,6 +32,9 @@ namespace Team.KYR.Scripts
 
         private void Awake()
         {
+            if (postDetailView == null)
+                postDetailView = GetComponent<BoardPostDetailView>();
+
             for (int i = 0; i < Boards.Length; i++)
             {
                 BoardSo board = Boards[i];
@@ -47,7 +51,22 @@ namespace Team.KYR.Scripts
         {
             currentBoard = board;
             showConceptOnly = false;
+
+            if (postDetailView != null)
+                postDetailView.Hide();
+
             RefreshPostList();
+        }
+
+        public void OpenPost(BoardPostData post)
+        {
+            if (post == null)
+                return;
+
+            post.IncreaseViewCount();
+
+            if (postDetailView != null)
+                postDetailView.Show(post);
         }
 
         public void UnlockPost(BoardSo board, BoardPostSo postSo)
