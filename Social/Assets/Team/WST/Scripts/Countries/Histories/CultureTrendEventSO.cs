@@ -20,13 +20,13 @@ namespace Team.WST.Scripts.Countries.Histories
             _country = country;
             _remaining = DurationTicks;
 
-            country.OnAddCulturePower += HandleCulturePowerAdd;
+            country.OnSpread += HandleSpread;
             _countdown = country.StartCoroutine(Countdown());
         }
 
         public override void Revert(AbstractCountry country)
         {
-            country.OnAddCulturePower -= HandleCulturePowerAdd;
+            country.OnSpread -= HandleSpread;
             
             if (_countdown != null)
             {
@@ -50,9 +50,11 @@ namespace Team.WST.Scripts.Countries.Histories
             Revert(_country);
         }
         
-        private void HandleCulturePowerAdd(CountryType countryType, ref int power)
+        private void HandleSpread(ref float radius, ref int amount)
         {
-            power += Amount;
+            radius += Radius;
+            amount +=  Amount;
         }
+
     }
 }

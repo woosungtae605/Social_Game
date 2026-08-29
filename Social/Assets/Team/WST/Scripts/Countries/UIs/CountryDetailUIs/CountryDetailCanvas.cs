@@ -1,4 +1,5 @@
 ﻿using System;
+using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CultureHistoryUIs;
 using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CulturePowerNumberStatusFolder;
 using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.PieUIFolder;
 using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
@@ -14,6 +15,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
             
         [Header("UI References")]
         [SerializeField] private CulturePowerNumberStatus culturePowerNumberStatus;
+        [SerializeField] private CultureHistoryStatus cultureHistoryStatus;
         [SerializeField] private PieGraphUI pieGraphUI;
         
         [Header("UIs")]
@@ -25,6 +27,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         {
             exitBtn.onClick.AddListener(HandleExitBtnClick);
             culturePowerNumberStatus.Init(countryManager);
+            cultureHistoryStatus.Init();
             pieGraphUI.Init();
         }
 
@@ -46,6 +49,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         {
             countryName.text = iCultureShowUI.DisplayName;
             culturePowerNumberStatus.Show(iCultureShowUI);
+            cultureHistoryStatus.Show(iCultureShowUI);
             pieGraphUI.Show(iCultureShowUI);
             gameObject.SetActive(true);
         }
