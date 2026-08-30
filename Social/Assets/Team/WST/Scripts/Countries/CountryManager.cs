@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.Histories;
 using Team.WST.Scripts.Countries.Informations;
+using Team.WST.Scripts.Events;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries
@@ -38,6 +40,7 @@ namespace Team.WST.Scripts.Countries
         {
             if (TryGetCountry(countryType, out AbstractCountry country))
             {
+                Bus<AddHistoryEvent>.RaiseEvent(new AddHistoryEvent(history));
                 country.AddCultureHistory(history);
             }
         }
