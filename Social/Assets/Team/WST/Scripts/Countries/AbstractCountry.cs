@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.Histories;
 using Team.WST.Scripts.Countries.Informations;
