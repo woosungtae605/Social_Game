@@ -2,134 +2,212 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardManager : MonoBehaviour
+namespace Team.KYR.Scripts
 {
-    [Header("Post UI")]
-    [SerializeField] private Transform postContent;
-    [SerializeField] private BoardPostItem postItemPrefab;
-
-    [Header("Initially Unlocked Posts")]
-    [SerializeField] private BoardPostSO[] initialPosts;
-
-    private readonly List<BoardPostData> unlockedPosts = new List<BoardPostData>();
-
-    private bool showConceptOnly;
-
-    private void Start()
+    public class BoardManager : MonoBehaviour
     {
-        for (int i = 0; i < initialPosts.Length; i++)
-        {
-            if (initialPosts[i] == null)
-                continue;
+        [Header("Post UI")]
+        [SerializeField] private Transform postContent;
+        [SerializeField] private BoardPostItem postItemPrefab;
+        [SerializeField] private BoardPostDetailView postDetailView;
 
-            TryAddPost(initialPosts[i], DateTime.Now);
+        [Header("Boards")]
+        [SerializeField] private BoardSo[] boards;
+
+        private readonly List<BoardPostData> unlockedPosts = new List<BoardPostData>();
+
+        private BoardSo currentBoard;
+        private bool showConceptOnly;
+
+        public BoardSo[] Boards
+        {
+            get
+            {
+                if (boards == null)
+                    return new BoardSo[0];
+
+                return boards;
+            }
         }
 
-        ShowAllPosts();
-    }
+        private void Awake()
+        {
+            if (postDetailView == null)
+                postDetailView = GetComponent<BoardPostDetailView>();
 
-    public void UnlockPost(BoardPostSO postSO)
-    {
-        if (!TryAddPost(postSO, DateTime.Now))
-            return;
+            for (int i = 0; i < Boards.Length; i++)
+            {
+                BoardSo board = Boards[i];
+                if (board == null)
+                    continue;
 
-        RefreshPostList();
-    }
+                BoardPostSo[] posts = board.InitialPosts;
+                for (int j = 0; j < posts.Length; j++)
+                    TryAddPost(board, posts[j], DateTime.Now);
+            }
+        }
 
-    public void UnlockPost(BoardPostSO postSO, DateTime createdAt)
-    {
-        if (!TryAddPost(postSO, createdAt))
-            return;
+        public void SelectBoard(BoardSo board)
+        {
+            currentBoard = board;
+            showConceptOnly = false;
 
-        RefreshPostList();
-    }
+            if (postDetailView != null)
+                postDetailView.Hide();
 
-    public void DeletePost(BoardPostData post)
-    {
-        if (!unlockedPosts.Remove(post))
-            return;
+            RefreshPostList();
+        }
 
-        RefreshPostList();
-    }
+        public void OpenPost(BoardPostData post)
+        {
+            if (post == null)
+                return;
 
-    public void ToggleConcept(BoardPostData post)
-    {
-        if (!unlockedPosts.Contains(post))
-            return;
+            post.IncreaseViewCount();
 
-        post.ToggleConcept();
-        RefreshPostList();
-    }
+            if (postDetailView != null)
+                postDetailView.Show(post);
+        }
 
-    public void ShowAllPosts()
-    {
-        showConceptOnly = false;
-        RefreshPostList();
-    }
+        public void UnlockPost(BoardSo board, BoardPostSo postSo)
+        {
+            if (!TryAddPost(board, postSo, DateTime.Now))
+                return;
 
-    public void ShowConceptPosts()
-    {
-        showConceptOnly = true;
-        RefreshPostList();
-    }
+            RefreshPostList();
+        }
 
-    private bool TryAddPost(BoardPostSO postSO, DateTime createdAt)
-    {
-        if (postSO == null || IsPostUnlocked(postSO))
+        public void UnlockPost(BoardSo board, BoardPostSo postSo, DateTime createdAt)
+        {
+            if (!TryAddPost(board, postSo, createdAt))
+                return;
+
+            RefreshPostList();
+        }
+
+        public void UnlockPost(BoardPostSo postSo)
+        {
+            BoardSo board = FindBoardForPost(postSo);
+            if (board == null)
+                return;
+
+            UnlockPost(board, postSo);
+        }
+
+        public void DeletePost(BoardPostData post)
+        {
+            if (!unlockedPosts.Remove(post))
+                return;
+
+            RefreshPostList();
+        }
+
+        public void ToggleConcept(BoardPostData post)
+        {
+            if (!unlockedPosts.Contains(post))
+                return;
+
+            post.ToggleConcept();
+            RefreshPostList();
+        }
+
+        public void ShowAllPosts()
+        {
+            showConceptOnly = false;
+            RefreshPostList();
+        }
+
+        public void ShowConceptPosts()
+        {
+            showConceptOnly = true;
+            RefreshPostList();
+        }
+
+        private bool TryAddPost(BoardSo board, BoardPostSo postSo, DateTime createdAt)
+        {
+            if (board == null || postSo == null || IsPostUnlocked(board, postSo))
+                return false;
+
+            BoardPostData postData = new BoardPostData(board, postSo, createdAt);
+            unlockedPosts.Add(postData);
+            return true;
+        }
+
+        private bool IsPostUnlocked(BoardSo board, BoardPostSo postSo)
+        {
+            for (int i = 0; i < unlockedPosts.Count; i++)
+            {
+                BoardPostData post = unlockedPosts[i];
+                if (post.Board == board && post.Definition == postSo)
+                    return true;
+            }
+
             return false;
-
-        BoardPostData postData = new BoardPostData(postSO, createdAt);
-        unlockedPosts.Add(postData);
-
-        return true;
-    }
-
-    private bool IsPostUnlocked(BoardPostSO postSO)
-    {
-        for (int i = 0; i < unlockedPosts.Count; i++)
-        {
-            if (unlockedPosts[i].Definition == postSO)
-                return true;
         }
 
-        return false;
-    }
-
-    private void RefreshPostList()
-    {
-        ClearPostList();
-
-        List<BoardPostData> visiblePosts = new List<BoardPostData>();
-
-        for (int i = 0; i < unlockedPosts.Count; i++)
+        private BoardSo FindBoardForPost(BoardPostSo postSo)
         {
-            BoardPostData post = unlockedPosts[i];
+            if (postSo == null)
+                return null;
 
-            if (!showConceptOnly || post.IsConcept)
-                visiblePosts.Add(post);
+            for (int i = 0; i < Boards.Length; i++)
+            {
+                BoardSo board = Boards[i];
+                if (board == null)
+                    continue;
+
+                BoardPostSo[] posts = board.InitialPosts;
+                for (int j = 0; j < posts.Length; j++)
+                {
+                    if (posts[j] == postSo)
+                        return board;
+                }
+            }
+
+            return null;
         }
 
-        visiblePosts.Sort(CompareByNewestDate);
-
-        for (int i = 0; i < visiblePosts.Count; i++)
+        private void RefreshPostList()
         {
-            BoardPostItem item = Instantiate(postItemPrefab, postContent);
-            item.Setup(visiblePosts[i], this);
-        }
-    }
+            ClearPostList();
 
-    private void ClearPostList()
-    {
-        for (int i = postContent.childCount - 1; i >= 0; i--)
+            if (currentBoard == null)
+                return;
+
+            List<BoardPostData> visiblePosts = new List<BoardPostData>();
+
+            for (int i = 0; i < unlockedPosts.Count; i++)
+            {
+                BoardPostData post = unlockedPosts[i];
+                if (post.Board != currentBoard)
+                    continue;
+
+                if (!showConceptOnly || post.IsConcept)
+                    visiblePosts.Add(post);
+            }
+
+            visiblePosts.Sort(CompareByNewestDate);
+
+            for (int i = 0; i < visiblePosts.Count; i++)
+            {
+                BoardPostItem item = Instantiate(postItemPrefab, postContent);
+                item.Setup(visiblePosts[i], this);
+            }
+        }
+
+        private void ClearPostList()
         {
-            GameObject child = postContent.GetChild(i).gameObject;
-            child.SetActive(false);
-            Destroy(child);
+            for (int i = postContent.childCount - 1; i >= 0; i--)
+            {
+                GameObject child = postContent.GetChild(i).gameObject;
+                child.SetActive(false);
+                Destroy(child);
+            }
         }
-    }
 
-    private static int CompareByNewestDate(BoardPostData first, BoardPostData second)
-    {
-        return second.CreatedAt.CompareTo(first.CreatedAt);
+        private static int CompareByNewestDate(BoardPostData first, BoardPostData second)
+        {
+            return second.CreatedAt.CompareTo(first.CreatedAt);
+        }
     }
 }
