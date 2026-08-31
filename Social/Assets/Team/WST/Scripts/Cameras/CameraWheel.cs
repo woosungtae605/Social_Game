@@ -1,4 +1,6 @@
-﻿using Unity.Cinemachine;
+﻿using Team.WST.Scripts.CoreSystem;
+using Team.WST.Scripts.Events;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,9 +14,29 @@ namespace Team.WST.Scripts.Cameras
         [SerializeField] private float zoomStep = 1f;
         [SerializeField] private float minZoom = 3f;
         [SerializeField] private float maxZoom = 15f;
+        
+        private bool _inputLocked = false;
+
+        private void Awake()
+        {
+            Bus<CountryDetailVisibilityEvent>.OnEvent += HandleDetailVisibility;
+        }
+        
+        private void OnDestroy()
+        {
+            Bus<CountryDetailVisibilityEvent>.OnEvent -= HandleDetailVisibility;
+        }
+
+        private void HandleDetailVisibility(CountryDetailVisibilityEvent evt)
+        {
+            _inputLocked = evt.IsVisible;
+        }
 
         private void Update()
         {
+            if(_inputLocked)
+                return;
+            
             Zoom();
         }
 

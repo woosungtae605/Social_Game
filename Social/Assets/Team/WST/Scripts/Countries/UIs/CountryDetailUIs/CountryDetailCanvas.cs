@@ -1,8 +1,10 @@
 ﻿using System;
+using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CultureHistoryUIs;
 using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.CulturePowerNumberStatusFolder;
 using Team.WST.Scripts.Countries.UIs.CountryDetailUIs.PieUIFolder;
 using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
+using Team.WST.Scripts.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +45,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         public void Hide()
         {
             gameObject.SetActive(false);
+            Bus<CountryDetailVisibilityEvent>.RaiseEvent(new CountryDetailVisibilityEvent(false));
         }
 
         public void Show(ICultureShowUI iCultureShowUI) // not complete
@@ -52,6 +55,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
             cultureHistoryStatus.Show(iCultureShowUI);
             pieGraphUI.Show(iCultureShowUI);
             gameObject.SetActive(true);
+            Bus<CountryDetailVisibilityEvent>.RaiseEvent(new CountryDetailVisibilityEvent(true));
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using Team.WST.Scripts.CoreSystem;
+using Team.WST.Scripts.Events;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Team.WST.Scripts.Cameras
@@ -11,8 +14,28 @@ namespace Team.WST.Scripts.Cameras
         [SerializeField] private Vector2 minPos;
         [SerializeField] private Vector2 maxPos;
         
+        private bool _inputLocked = false;
+
+        private void Awake()
+        {
+            Bus<CountryDetailVisibilityEvent>.OnEvent += HandleDetailVisibility;
+        }
+        
+        private void OnDestroy()
+        {
+            Bus<CountryDetailVisibilityEvent>.OnEvent -= HandleDetailVisibility;
+        }
+
+        private void HandleDetailVisibility(CountryDetailVisibilityEvent evt)
+        {
+            _inputLocked = evt.IsVisible;
+        }
+
         private void Update()
         {
+            if (_inputLocked) 
+                return;
+            
             MouseMove();
         }
 
