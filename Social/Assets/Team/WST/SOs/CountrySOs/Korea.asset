@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Country.Informations.CountrySO
   <CountryType>k__BackingField: 0
   <CountryName>k__BackingField: Korea
-  <CountrySprite>k__BackingField: {fileID: 0}
+  <CountrySprite>k__BackingField: {fileID: -287535515434267827, guid: ac30a881901416746a343eb42f4e5dee, type: 3}
   <InitCulturalPower>k__BackingField: 300
   <CountryColor>k__BackingField: {r: 0, g: 0.32679224, b: 1, a: 1}
   <CultureHistoryEvents>k__BackingField:

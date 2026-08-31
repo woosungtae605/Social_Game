@@ -19,6 +19,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
         [SerializeField] private CulturePowerNumberStatus culturePowerNumberStatus;
         [SerializeField] private CultureHistoryStatus cultureHistoryStatus;
         [SerializeField] private PieGraphUI pieGraphUI;
+        [SerializeField] private Image countryFlagImage;
         
         [Header("UIs")]
         [SerializeField] private TextMeshProUGUI countryName;
@@ -54,6 +55,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryDetailUIs
             culturePowerNumberStatus.Show(iCultureShowUI);
             cultureHistoryStatus.Show(iCultureShowUI);
             pieGraphUI.Show(iCultureShowUI);
+            countryFlagImage.sprite = iCultureShowUI.DisplaySprite;
             gameObject.SetActive(true);
             Bus<CountryDetailVisibilityEvent>.RaiseEvent(new CountryDetailVisibilityEvent(true));
         }
