@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.Histories;
 using Team.WST.Scripts.Countries.Informations;
@@ -39,7 +39,7 @@ namespace Team.WST.Scripts.Countries
             AddCulturePower(CountrySO.CountryType, CountrySO.InitCulturalPower);
         }
 
-        public void AddCulturePower(CountryType countryType, int  power)
+        public void AddCulturePower(CountryType countryType, int power)
         {
             OnAddCulturePower?.Invoke(countryType, ref power);
             if (_countriesCulturePowerDict.ContainsKey(countryType))
@@ -51,6 +51,7 @@ namespace Team.WST.Scripts.Countries
                 _countriesCulturePowerDict[countryType] = power;
             }
             _allCulturePower += power;
+            Bus<CulturePowerChangedEvent>.RaiseEvent(new CulturePowerChangedEvent(CountryType, countryType, power));
         }
 
         public void AddCultureHistory(HistoryEventSO historyHistorySo)
