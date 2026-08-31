@@ -1,4 +1,6 @@
 ﻿using System;
+using Team.WST.Scripts.CoreSystem;
+using Team.WST.Scripts.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,17 +15,21 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
         [SerializeField] private Button moreViewBtn;
         
         [SerializeField] private ShowPercentUI showPercent;
-        public event Action OnMoreViewBtnClick; 
+        public event Action OnMoreViewBtnClick;
+
+        private ICultureShowUI _current;
         
         public void Init()
         {
             moreViewBtn.onClick.AddListener(HandleMoreView);
             showPercent.Init();
+            Bus<CulturePowerChangedEvent>.OnEvent += HandleCulturePowerChanged;
         }
         
         private void OnDestroy()
         {
             moreViewBtn.onClick.RemoveListener(HandleMoreView);
+            Bus<CulturePowerChangedEvent>.OnEvent -= HandleCulturePowerChanged;
         }
         
         private void HandleMoreView()
@@ -33,6 +39,7 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
 
         public void Show(ICultureShowUI data)
         {
+            _current = data;
             countryName.text = data.DisplayName;
             allCulturePower.text = data.AllCulturePower.ToString();
             showPercent.Show(data.CulturePowerDict);
@@ -40,5 +47,15 @@ namespace Team.WST.Scripts.Countries.UIs.CountryInformationUIs
         }
 
         public void Hide() => gameObject.SetActive(false);
+
+        private void HandleCulturePowerChanged(CulturePowerChangedEvent evt)
+        {
+            if (!gameObject.activeSelf || _current == null)
+                return;
+            if (evt.TargetCountryType != _current.CountryType)
+                return;
+
+            Show(_current);
+        }
     }
 }
