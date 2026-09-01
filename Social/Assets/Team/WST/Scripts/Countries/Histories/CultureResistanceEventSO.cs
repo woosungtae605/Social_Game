@@ -1,16 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using Team.WST.Scripts.Countries.Informations;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries.Histories
 {
-    [CreateAssetMenu(fileName = "CultureEvent", menuName = "SO/History/CultureTrend", order = 0)]
-    public class CultureTrendEventSO : HistoryEventSO
+    [CreateAssetMenu(fileName = "CultureResistance", menuName = "SO/History/CultureResistance", order = 1)]
+    public class CultureResistanceEventSO : HistoryEventSO
     {
-        [field: SerializeField] public int Amount { get; private set; }
-        [field: SerializeField] public float Radius { get; private set; }
+        [field: SerializeField] public int ReduceAmount { get; private set; }
+        [field: SerializeField, Range(0f, 1f)] public float ReduceFactor { get; private set; } = 1f;
         [field: SerializeField] public int DurationTicks { get; private set; }
-        
+        [field: SerializeField] public bool RequireForeignCulture { get; private set; }
+
         private AbstractCountry _country;
         private int _remaining;
         private Coroutine _countdown;
@@ -24,7 +25,7 @@ namespace Team.WST.Scripts.Countries.Histories
             _remaining = DurationTicks;
             _isActive = true;
 
-            country.OnSpread += HandleSpread;
+            country.OnAddCulturePower += HandleAddCulturePower;
             _countdown = country.StartCoroutine(Countdown());
         }
 
@@ -33,8 +34,8 @@ namespace Team.WST.Scripts.Countries.Histories
             if (!_isActive)
                 return;
 
-            country.OnSpread -= HandleSpread;
-            
+            country.OnAddCulturePower -= HandleAddCulturePower;
+
             if (_countdown != null)
             {
                 country.StopCoroutine(_countdown);
@@ -47,9 +48,21 @@ namespace Team.WST.Scripts.Countries.Histories
 
         public override bool CanApply(AbstractCountry country)
         {
-            return !IsAlreadyActiveOn(country);
+            if (IsAlreadyActiveOn(country))
+                return false;
+
+            if (!RequireForeignCulture)
+                return true;
+
+            foreach (var pair in country.CulturePowerDict)
+            {
+                if (pair.Key != country.CountryType && pair.Value > 0)
+                    return true;
+            }
+
+            return false;
         }
-        
+
         private IEnumerator Countdown()
         {
             while (_remaining > 0)
@@ -57,14 +70,18 @@ namespace Team.WST.Scripts.Countries.Histories
                 yield return new WaitForSeconds(1f);
                 _remaining--;
             }
+
             Revert(_country);
         }
-        
-        private void HandleSpread(ref float radius, ref int amount)
-        {
-            radius += Radius;
-            amount +=  Amount;
-        }
 
+        private void HandleAddCulturePower(CountryType countryType, ref int power)
+        {
+            if (_country == null || countryType == _country.CountryType)
+                return;
+
+            power = Mathf.RoundToInt(power * ReduceFactor) - ReduceAmount;
+            if (power < 0)
+                power = 0;
+        }
     }
 }

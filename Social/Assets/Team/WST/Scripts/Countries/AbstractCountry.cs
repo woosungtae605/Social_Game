@@ -54,10 +54,21 @@ namespace Team.WST.Scripts.Countries
             Bus<CulturePowerChangedEvent>.RaiseEvent(new CulturePowerChangedEvent(CountryType, countryType, power));
         }
 
-        public void AddCultureHistory(HistoryEventSO historyHistorySo)
+        public void AddCultureHistory(HistoryEventSO history)
         {
-            _cultureHistories.Add(historyHistorySo);
-            historyHistorySo.Apply(this);
+            HistoryEventSO instance = Instantiate(history);
+            instance.hideFlags = HideFlags.HideAndDontSave;
+            _cultureHistories.Add(instance);
+            instance.Apply(this);
+        }
+
+        private void OnDestroy()
+        {
+            for (int i = 0; i < _cultureHistories.Count; i++)
+            {
+                if (_cultureHistories[i] != null)
+                    Destroy(_cultureHistories[i]);
+            }
         }
         
         public void Spread()

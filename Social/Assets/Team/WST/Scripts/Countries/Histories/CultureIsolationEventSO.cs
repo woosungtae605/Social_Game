@@ -1,16 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using Team.WST.Scripts.Countries.Informations;
 using UnityEngine;
 
 namespace Team.WST.Scripts.Countries.Histories
 {
-    [CreateAssetMenu(fileName = "CultureEvent", menuName = "SO/History/CultureTrend", order = 0)]
-    public class CultureTrendEventSO : HistoryEventSO
+    [CreateAssetMenu(fileName = "CultureIsolation", menuName = "SO/History/CultureIsolation", order = 2)]
+    public class CultureIsolationEventSO : HistoryEventSO
     {
-        [field: SerializeField] public int Amount { get; private set; }
         [field: SerializeField] public float Radius { get; private set; }
+        [field: SerializeField] public int Amount { get; private set; }
         [field: SerializeField] public int DurationTicks { get; private set; }
-        
+        [field: SerializeField] public int MinOwnCulturePower { get; private set; }
+
         private AbstractCountry _country;
         private int _remaining;
         private Coroutine _countdown;
@@ -34,7 +35,7 @@ namespace Team.WST.Scripts.Countries.Histories
                 return;
 
             country.OnSpread -= HandleSpread;
-            
+
             if (_countdown != null)
             {
                 country.StopCoroutine(_countdown);
@@ -47,9 +48,16 @@ namespace Team.WST.Scripts.Countries.Histories
 
         public override bool CanApply(AbstractCountry country)
         {
-            return !IsAlreadyActiveOn(country);
+            if (IsAlreadyActiveOn(country))
+                return false;
+
+            if (MinOwnCulturePower <= 0)
+                return true;
+
+            return country.CulturePowerDict.TryGetValue(country.CountryType, out int ownPower)
+                   && ownPower >= MinOwnCulturePower;
         }
-        
+
         private IEnumerator Countdown()
         {
             while (_remaining > 0)
@@ -57,14 +65,14 @@ namespace Team.WST.Scripts.Countries.Histories
                 yield return new WaitForSeconds(1f);
                 _remaining--;
             }
+
             Revert(_country);
         }
-        
+
         private void HandleSpread(ref float radius, ref int amount)
         {
-            radius += Radius;
-            amount +=  Amount;
+            radius = Mathf.Max(0f, radius - Radius);
+            amount = Mathf.Max(0, amount - Amount);
         }
-
     }
 }

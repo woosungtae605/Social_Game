@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CultureEvent
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Histories.CultureTrendEventSO
   <Title>k__BackingField: "\uB300\uC720\uD589"
-  <Content>k__BackingField: "\uB300\uC720\uD589\uD558\uAE30 \uC2DC\uC791\uD569\uB2C8"
+  <Content>k__BackingField: "\uC790\uAE30 \uB098\uB77C\uC758 \uBB38\uD654\uAC00 \uB300\uC720\uD589\uD558\uAE30
+    \uC2DC\uC791\uD569\uB2C8\uB2E4"
   <Amount>k__BackingField: 111
   <Radius>k__BackingField: 111
   <DurationTicks>k__BackingField: 11
