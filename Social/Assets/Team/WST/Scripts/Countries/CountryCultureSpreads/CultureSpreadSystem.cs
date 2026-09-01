@@ -1,5 +1,6 @@
 ﻿using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.Informations;
+using Team.WST.Scripts.Countries.Interfaces;
 using Team.WST.Scripts.Events;
 using UnityEngine;
 
@@ -34,6 +35,9 @@ namespace Team.WST.Scripts.Countries.CountryCultureSpreads
             
             foreach (AbstractCountry other in countryManager.CountriesDict.Values)
             {
+                if (other is not ICultureReceiver)
+                    continue;
+
                 float distance = Vector3.Distance(origin, other.transform.position);
                 if (distance > radius)
                     continue;
