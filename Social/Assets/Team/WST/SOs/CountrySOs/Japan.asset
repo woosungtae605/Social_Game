@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71a54c9245f34363b4edf3905312de95, type: 3}
-  m_Name: China
+  m_Name: Japan
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Country.Informations.CountrySO
-  <CountryType>k__BackingField: 3
-  <CountryName>k__BackingField: "\uC911\uAD6D"
-  <CountrySprite>k__BackingField: {fileID: 2532073981782216884, guid: e195550079ac7d44ba8e745e8d92f9db, type: 3}
-  <InitCulturalPower>k__BackingField: 1000
-  <CountryColor>k__BackingField: {r: 1, g: 0.17133528, b: 0, a: 1}
+  <CountryType>k__BackingField: 2
+  <CountryName>k__BackingField: "\uC77C\uBCF8"
+  <CountrySprite>k__BackingField: {fileID: -287535515434267827, guid: ac30a881901416746a343eb42f4e5dee, type: 3}
+  <InitCulturalPower>k__BackingField: 300
+  <CountryColor>k__BackingField: {r: 1, g: 0.45823798, b: 0, a: 1}
   <CultureHistoryEvents>k__BackingField:
+  - {fileID: 11400000, guid: 8d2a6f4e1b734c59a0e3f7c9d5b1a846, type: 2}
   - {fileID: 11400000, guid: 171c83a743b61d74c90294d6cc2db874, type: 2}
-  - {fileID: 11400000, guid: 2e8f1a4c7d9b4630a5e2f8c1b4d6e073, type: 2}
   - {fileID: 11400000, guid: 6a3d9e1f5c2847b0a8d2e4f1c7b9a058, type: 2}
   - {fileID: 11400000, guid: 1c5e8b3a7f494d62b0e9a4c6d8f2e137, type: 2}
-  - {fileID: 11400000, guid: 8d2a6f4e1b734c59a0e3f7c9d5b1a846, type: 2}
-  <SpreadRadius>k__BackingField: 10
-  <SpreadAmount>k__BackingField: 7
+  - {fileID: 11400000, guid: 2e8f1a4c7d9b4630a5e2f8c1b4d6e073, type: 2}
+  <SpreadRadius>k__BackingField: 7
+  <SpreadAmount>k__BackingField: 3
