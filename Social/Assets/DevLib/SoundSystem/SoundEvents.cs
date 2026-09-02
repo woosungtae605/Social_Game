@@ -5,8 +5,11 @@ namespace DevLib.SoundSystem
 {
     public static class SoundEvents
     {
+        public const string MasterVolumePrefKey = "Sound.MasterVolume";
+
         public static readonly PlaySoundEvent PlaySoundEvent = new PlaySoundEvent();
         public static readonly StopSoundEvent StopSoundEvent = new StopSoundEvent();
+        public static readonly SetSoundVolumeEvent SetSoundVolumeEvent = new SetSoundVolumeEvent();
     }
 
     public class PlaySoundEvent : GameEvent
@@ -35,4 +38,14 @@ namespace DevLib.SoundSystem
         }
     }
 
+    public class SetSoundVolumeEvent : GameEvent
+    {
+        public float Volume;
+
+        public SetSoundVolumeEvent Init(float volume)
+        {
+            Volume = volume;
+            return this;
+        }
+    }
 }

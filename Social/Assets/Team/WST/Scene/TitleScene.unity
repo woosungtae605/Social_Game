@@ -787,6 +787,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215002817}
   m_CullTransparentMesh: 1
+--- !u!1 &219679198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219679201}
+  - component: {fileID: 219679200}
+  - component: {fileID: 219679199}
+  m_Layer: 0
+  m_Name: SoundSystems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &219679199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219679198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cad76b2e8942679036abd5e9e36fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SoundSystem_Assembly::DevLib.SoundSystem.SoundManager
+  poolManager: {fileID: 11400000, guid: 22737a653e54e69438a78a202082a48a, type: 2}
+  soundItem: {fileID: 11400000, guid: baf9e597ed73e264f8277beeb1d60f85, type: 2}
+  <SoundChannel>k__BackingField: {fileID: 11400000, guid: 69c114331310e4b4a9a1eab7f7b92555, type: 2}
+--- !u!114 &219679200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219679198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d93f16746cf460499ae9860631b58e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PoolRuntime::DevLib.ObjectPool.Runtime.PoolInitializer
+  <PoolManager>k__BackingField: {fileID: 11400000, guid: 22737a653e54e69438a78a202082a48a, type: 2}
+--- !u!4 &219679201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219679198}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277384492
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +963,7 @@ GameObject:
   - component: {fileID: 316205189}
   - component: {fileID: 316205188}
   - component: {fileID: 316205193}
+  - component: {fileID: 316205194}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1049,6 +1111,21 @@ MonoBehaviour:
   restWidth: 420
   hoverWidth: 500
   duration: 0.18
+--- !u!114 &316205194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316205187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a5f558b773c614dbb0d283743911e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleSoundCue
+  soundChannel: {fileID: 11400000, guid: 69c114331310e4b4a9a1eab7f7b92555, type: 2}
+  hoverClip: {fileID: 11400000, guid: 53b1bb3d9607e9b46b8339e2dfb2ae8f, type: 2}
+  clickClip: {fileID: 11400000, guid: 8dede1daf0b9b9241a5dba26803b1fc6, type: 2}
 --- !u!1 &342191030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2107,7 @@ GameObject:
   - component: {fileID: 580002794}
   - component: {fileID: 580002793}
   - component: {fileID: 580002792}
+  - component: {fileID: 580002797}
   m_Layer: 5
   m_Name: TitleCanvas
   m_TagString: Untagged
@@ -2144,6 +2222,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &580002797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580002791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e487ae8d7b5a31449975df1bf3692397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleBgmPlayer
+  soundChannel: {fileID: 11400000, guid: 69c114331310e4b4a9a1eab7f7b92555, type: 2}
+  bgmClip: {fileID: 11400000, guid: 63d153a17a334e542a1e436985a4e21d, type: 2}
+  channelNumber: 1
 --- !u!1 &616428018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5505,6 +5598,7 @@ GameObject:
   - component: {fileID: 1537155613}
   - component: {fileID: 1537155616}
   - component: {fileID: 1537155617}
+  - component: {fileID: 1537155618}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -5652,6 +5746,21 @@ MonoBehaviour:
   restWidth: 420
   hoverWidth: 500
   duration: 0.18
+--- !u!114 &1537155618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537155611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a5f558b773c614dbb0d283743911e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleSoundCue
+  soundChannel: {fileID: 11400000, guid: 69c114331310e4b4a9a1eab7f7b92555, type: 2}
+  hoverClip: {fileID: 11400000, guid: 53b1bb3d9607e9b46b8339e2dfb2ae8f, type: 2}
+  clickClip: {fileID: 11400000, guid: 8dede1daf0b9b9241a5dba26803b1fc6, type: 2}
 --- !u!1 &1541286793
 GameObject:
   m_ObjectHideFlags: 0
@@ -5683,6 +5792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbd29be97405d549bacb6e05f8ad918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleOptionsPanel
+  soundChannel: {fileID: 11400000, guid: 69c114331310e4b4a9a1eab7f7b92555, type: 2}
   volumeSlider: {fileID: 1849404798}
   volumeValueText: {fileID: 859964096}
   closeButton: {fileID: 741132841}
@@ -7124,6 +7234,7 @@ GameObject:
   - component: {fileID: 1921167026}
   - component: {fileID: 1921167029}
   - component: {fileID: 1921167030}
+  - component: {fileID: 1921167031}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -7271,6 +7382,21 @@ MonoBehaviour:
   restWidth: 420
   hoverWidth: 500
   duration: 0.18
+--- !u!114 &1921167031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921167024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a5f558b773c614dbb0d283743911e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleSoundCue
+  soundChannel: {fileID: 11400000, guid: 69c114331310e4b4a9a1eab7f7b92555, type: 2}
+  hoverClip: {fileID: 11400000, guid: 53b1bb3d9607e9b46b8339e2dfb2ae8f, type: 2}
+  clickClip: {fileID: 11400000, guid: 8dede1daf0b9b9241a5dba26803b1fc6, type: 2}
 --- !u!1 &1959171484
 GameObject:
   m_ObjectHideFlags: 0
@@ -7799,3 +7925,4 @@ SceneRoots:
   - {fileID: 900535969}
   - {fileID: 580002796}
   - {fileID: 1716654650}
+  - {fileID: 219679201}

@@ -1,3 +1,5 @@
+using DevLib.EventChannelSystem;
+using DevLib.SoundSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,16 +8,15 @@ namespace Team.WST.Scripts.Title
 {
     public class TitleOptionsPanel : MonoBehaviour
     {
-        private const string VolumePrefKey = "Title.MasterVolume";
-
+        [SerializeField] private EventChannelSO soundChannel;
         [SerializeField] private Slider volumeSlider;
         [SerializeField] private TextMeshProUGUI volumeValueText;
         [SerializeField] private Button closeButton;
 
         private void Awake()
         {
-            float volume = PlayerPrefs.GetFloat(VolumePrefKey, AudioListener.volume);
-            ApplyVolume(volume, writePrefs: false);
+            float volume = PlayerPrefs.GetFloat(SoundEvents.MasterVolumePrefKey, 1f);
+            SetVolumeLabel(volume);
 
             if (volumeSlider != null)
             {
@@ -49,22 +50,17 @@ namespace Team.WST.Scripts.Title
 
         private void HandleVolumeChanged(float value)
         {
-            ApplyVolume(value, writePrefs: true);
+            SetVolumeLabel(value);
+            if (soundChannel == null)
+                return;
+
+            soundChannel.RaiseEvent(SoundEvents.SetSoundVolumeEvent.Init(value));
         }
 
-        private void ApplyVolume(float value, bool writePrefs)
+        private void SetVolumeLabel(float volume)
         {
-            float clamped = Mathf.Clamp01(value);
-            AudioListener.volume = clamped;
-
             if (volumeValueText != null)
-                volumeValueText.text = $"{Mathf.RoundToInt(clamped * 100f)}%";
-
-            if (writePrefs)
-            {
-                PlayerPrefs.SetFloat(VolumePrefKey, clamped);
-                PlayerPrefs.Save();
-            }
+                volumeValueText.text = $"{Mathf.RoundToInt(Mathf.Clamp01(volume) * 100f)}%";
         }
     }
 }
