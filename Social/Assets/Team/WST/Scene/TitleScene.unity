@@ -5789,9 +5789,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1541286793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cbd29be97405d549bacb6e05f8ad918, type: 3}
+  m_Script: {fileID: 11500000, guid: da1f9aff0bbf3064f839f376015e98de, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleOptionsPanel
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Settings.SettingsPanel
   soundChannel: {fileID: 11400000, guid: 69c114331310e4b4a9a1eab7f7b92555, type: 2}
   volumeSlider: {fileID: 1849404798}
   volumeValueText: {fileID: 859964096}

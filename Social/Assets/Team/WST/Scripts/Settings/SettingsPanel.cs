@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Team.WST.Scripts.Title
+namespace Team.WST.Scripts.Settings
 {
-    public class TitleOptionsPanel : MonoBehaviour
+    public class SettingsPanel : MonoBehaviour
     {
         [SerializeField] private EventChannelSO soundChannel;
         [SerializeField] private Slider volumeSlider;

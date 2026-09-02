@@ -1,3 +1,4 @@
+using Team.WST.Scripts.Settings;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace Team.WST.Scripts.Title
         [SerializeField] private Button startButton;
         [SerializeField] private Button optionsButton;
         [SerializeField] private Button exitButton;
-        [SerializeField] private TitleOptionsPanel optionsPanel;
+        [SerializeField] private SettingsPanel optionsPanel;
         [SerializeField] private string gameSceneName = "WSTScene";
 
         private void Awake()
