@@ -901,6 +901,7 @@ GameObject:
   - component: {fileID: 316205190}
   - component: {fileID: 316205189}
   - component: {fileID: 316205188}
+  - component: {fileID: 316205193}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1029,8 +1030,25 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 420, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &316205193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316205187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e79b8d4521923e48be5e1201fcab499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleButtonHover
+  layoutElement: {fileID: 316205191}
+  rectTransform: {fileID: 316205192}
+  restWidth: 420
+  hoverWidth: 500
+  duration: 0.18
 --- !u!1 &342191030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1091,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 72, y: 36}
-  m_SizeDelta: {x: 500, y: 530}
+  m_SizeDelta: {x: 520, y: 530}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &342191032
 MonoBehaviour:
@@ -4099,7 +4117,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -290}
-  m_SizeDelta: {x: 420, y: 230}
+  m_SizeDelta: {x: 500, y: 230}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1016062200
 MonoBehaviour:
@@ -4122,7 +4140,7 @@ MonoBehaviour:
   m_Spacing: 14
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -5486,6 +5504,7 @@ GameObject:
   - component: {fileID: 1537155614}
   - component: {fileID: 1537155613}
   - component: {fileID: 1537155616}
+  - component: {fileID: 1537155617}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -5512,7 +5531,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 420, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1537155613
 MonoBehaviour:
@@ -5616,6 +5635,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1537155617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537155611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e79b8d4521923e48be5e1201fcab499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleButtonHover
+  layoutElement: {fileID: 1537155615}
+  rectTransform: {fileID: 1537155612}
+  restWidth: 420
+  hoverWidth: 500
+  duration: 0.18
 --- !u!1 &1541286793
 GameObject:
   m_ObjectHideFlags: 0
@@ -7087,6 +7123,7 @@ GameObject:
   - component: {fileID: 1921167027}
   - component: {fileID: 1921167026}
   - component: {fileID: 1921167029}
+  - component: {fileID: 1921167030}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -7113,7 +7150,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 420, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921167026
 MonoBehaviour:
@@ -7217,6 +7254,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1921167030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921167024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e79b8d4521923e48be5e1201fcab499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Title.TitleButtonHover
+  layoutElement: {fileID: 1921167028}
+  rectTransform: {fileID: 1921167025}
+  restWidth: 420
+  hoverWidth: 500
+  duration: 0.18
 --- !u!1 &1959171484
 GameObject:
   m_ObjectHideFlags: 0
