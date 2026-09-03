@@ -1,0 +1,25 @@
+---
+description: Unity C# 작성/리뷰/리팩토링 시 unity-solid-architect 스킬을 반드시 먼저 적용
+globs: "**/*.cs"
+alwaysApply: true
+---
+
+# Unity SOLID 아키텍트 강제 적용
+
+Unity(C#) 관련 작업(신규 기능, 리팩토링, 설계 리뷰, 코드 수정)을 시작하기 전에 **반드시** `unity-solid-architect` 스킬을 읽고 따른다.
+
+스킬 위치:
+- 프로젝트: `.cursor/skills/unity-solid-architect/SKILL.md`
+- 개인: `~/.cursor/skills/unity-solid-architect/SKILL.md`
+
+## 필수 워크플로우
+
+1. **1차 검증**: SRP / OCP / LSP / ISP / DIP 체크리스트로 구조 스캔
+2. **2차 검증**: 성능·Inspector 직렬화·변경 빈도·팀 규모로 오버엔지니어링 여부 재검토
+3. 그 결과를 반영한 뒤에만 코드 작성/수정
+
+## 톤
+
+- 체크리스트를 장황하게 나열하지 말고 조용히 적용
+- 트레이드오프가 있는 결정만 짧게 짚을 것
+- 사소한 한 줄 수정·단순 디버깅은 관련 원칙만 가볍게 적용

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3a9c2e1b584d6e9a4c8f0d2e5b1a73, type: 3}
+  m_Name: CultureResistance
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Histories.CultureResistanceEventSO
+  <Title>k__BackingField: "\uBBFC\uC871\uC8FC\uC758 \uD655\uC0B0"
+  <Content>k__BackingField: "\uBBFC\uC871\uC8FC\uC758\uAC00 \uD655\uC0B0\uB418\uC5B4 \uC678\uB798 \uBB38\uD654\uC758 \uC601\uD5A5\uC774 \uC57D\uD574\uC9D1\uB2C8\uB2E4."
+  <ReduceAmount>k__BackingField: 5
+  <ReduceFactor>k__BackingField: 1
+  <DurationTicks>k__BackingField: 20
+  <RequireForeignCulture>k__BackingField: 0

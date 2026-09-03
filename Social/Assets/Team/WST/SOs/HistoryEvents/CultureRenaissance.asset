@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6c4e8a2d174f59a3e1b0c8d5f7a264, type: 3}
+  m_Name: CultureRenaissance
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Histories.CultureBurstEventSO
+  <Title>k__BackingField: "\uBB38\uD654 \uB974\uB124\uC0C1\uC2A4"
+  <Content>k__BackingField: "\uC790\uAD6D \uBB38\uD654\uAC00 \uD06C\uAC8C \uBC88\uC131\uD569\uB2C8\uB2E4."
+  <Amount>k__BackingField: 80
