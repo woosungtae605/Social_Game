@@ -14,5 +14,6 @@ namespace Team.WST.Scripts.Countries.Informations
         [field: SerializeField] public HistoryEventSO[] CultureHistoryEvents { get; private set; }
         [field: SerializeField] public float SpreadRadius { get; private set; }
         [field: SerializeField] public int SpreadAmount { get; private set; }
+        [field: SerializeField] public CultureSO[] Cultures { get; private set; }
     }
 }

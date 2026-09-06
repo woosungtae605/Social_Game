@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e4c1a09d8f4e2ab6c5d3f1a8e07942, type: 3}
+  m_Name: CN_CensorshipMaximalism
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Informations.CultureSO
+  <CultureName>k__BackingField: "\uAC80\uC5F4 \uB9CC\uB2A5\uC8FC\uC758"
+  <Description>k__BackingField: "\uBD88\uD3B8\uD55C \uB9D0\uC744 \uC9C0\uC6B0\uB294 \uAC83\uC73C\uB85C \uC9C8\uC11C\uB97C \uC0AC\uB294 \uC2B5\uAD00."
+  <OriginCountry>k__BackingField: 3
+  <Influence>k__BackingField: 10
+  <Harmfulness>k__BackingField: 68

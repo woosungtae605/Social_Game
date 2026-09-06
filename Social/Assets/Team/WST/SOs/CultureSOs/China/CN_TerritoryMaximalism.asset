@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e4c1a09d8f4e2ab6c5d3f1a8e07942, type: 3}
+  m_Name: CN_TerritoryMaximalism
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Informations.CultureSO
+  <CultureName>k__BackingField: "\uC601\uD1A0 \uACFC\uC789\uC8FC\uC7A5"
+  <Description>k__BackingField: "\uC9C0\uB3C4\uB97C \uD06C\uAC8C \uADF8\uB9AC\uB294 \uAC83\uC73C\uB85C \uC5ED\uC0AC\uB97C \uB300\uCCB4\uD558\uB294 \uC8FC\uC7A5."
+  <OriginCountry>k__BackingField: 3
+  <Influence>k__BackingField: 9
+  <Harmfulness>k__BackingField: 82

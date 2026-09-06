@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e4c1a09d8f4e2ab6c5d3f1a8e07942, type: 3}
+  m_Name: IN_SpiceCuisine
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.Informations.CultureSO
+  <CultureName>k__BackingField: "\uD5A5\uC2E0\uB8CC \uC694\uB9AC"
+  <Description>k__BackingField: "\uD5A5\uC774 \uAE38\uC744 \uB9CC\uB4E4\uACE0 \uAE38\uC774 \uC2DD\uD0C1\uC744 \uB113\uD78C\uB2E4."
+  <OriginCountry>k__BackingField: 6
+  <Influence>k__BackingField: 19
+  <Harmfulness>k__BackingField: 0
