@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoardSo
   displayName: "\uC2F1\uAE00\uBC99\uAE00\uC0AC\uD68C\uCD0C \uAC24\uB7EC\uB9AC"
   icon: {fileID: 0}
-  initialPosts:
-  - {fileID: 11400000, guid: 206b66270570ccd4f9dd503e10052bf6, type: 2}
+  initialPosts: []

@@ -5170,6 +5170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.CulturalScabs.CulturalScabCountryDrop
   scab: {fileID: 5385686274598632809}
+  successVfx: {fileID: 1967481235889194851}
 --- !u!1 &2514274351291228523
 GameObject:
   m_ObjectHideFlags: 0
