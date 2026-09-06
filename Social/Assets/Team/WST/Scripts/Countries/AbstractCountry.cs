@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Countries.Histories;
@@ -34,11 +33,6 @@ namespace Team.WST.Scripts.Countries
         public CountryType CountryType => CountrySO.CountryType;
         
         #endregion
-
-        public IReadOnlyList<CultureSO> Cultures =>
-            CountrySO != null && CountrySO.Cultures != null
-                ? CountrySO.Cultures
-                : Array.Empty<CultureSO>();
 
         public void Init()
         {

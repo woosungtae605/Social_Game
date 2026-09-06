@@ -25,19 +25,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d2a6f4e1b734c59a0e3f7c9d5b1a846, type: 2}
   <SpreadRadius>k__BackingField: 10
   <SpreadAmount>k__BackingField: 7
-  <Cultures>k__BackingField:
-  - {fileID: 11400000, guid: 1c7149a6ae6777ede4cba37962dbc082, type: 2}
-  - {fileID: 11400000, guid: 65d25e9661043f4f8645dd43c6718691, type: 2}
-  - {fileID: 11400000, guid: d108eaa8e1360d47f6aff35250ba7328, type: 2}
-  - {fileID: 11400000, guid: 81bff9927808ee266a5d25f4370c087e, type: 2}
-  - {fileID: 11400000, guid: 943e228cc4d0cc4ed6e6245fa1d072a7, type: 2}
-  - {fileID: 11400000, guid: dc150d365468c019b24d9b1f078a8da1, type: 2}
-  - {fileID: 11400000, guid: 8388de95d08e860e785047a4f36094e6, type: 2}
-  - {fileID: 11400000, guid: 978d53d11162d29b30091d79cfc6a619, type: 2}
-  - {fileID: 11400000, guid: 70f9d2c5a2214239b876167e4ac9bd26, type: 2}
-  - {fileID: 11400000, guid: f4e0d345a4ddfd13f0983f55e86f3b84, type: 2}
-  - {fileID: 11400000, guid: a24042771411427f6694e1f556d8a780, type: 2}
-  - {fileID: 11400000, guid: 949702d0862a765164b0694351c6c114, type: 2}
-  - {fileID: 11400000, guid: 228886e372021b53a7d41f176e07a67b, type: 2}
-  - {fileID: 11400000, guid: 53ae619776ed801cfd002eee5179420a, type: 2}
-  - {fileID: 11400000, guid: 8bb953e8f5d816018dee1a647e5655e8, type: 2}
