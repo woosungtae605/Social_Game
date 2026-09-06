@@ -9,6 +9,7 @@ namespace Team.KYR.Scripts
         private const float ImageSize = 180f;
 
         [SerializeField] private GameObject boardPanel;
+        [SerializeField] private TMP_FontAsset fontAsset;
 
         private GameObject detailPanel;
         private TMP_Text titleText;
@@ -126,7 +127,7 @@ namespace Team.KYR.Scripts
             detailPanel.SetActive(false);
         }
 
-        private static Button CreateCloseButton(Transform parent)
+        private Button CreateCloseButton(Transform parent)
         {
             GameObject buttonObject = new GameObject("DetailCloseBtn", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button));
             buttonObject.transform.SetParent(parent, false);
@@ -234,7 +235,7 @@ namespace Team.KYR.Scripts
             return row.transform;
         }
 
-        private static TMP_Text CreateText(Transform parent, string name, float fontSize, bool wrap)
+        private TMP_Text CreateText(Transform parent, string name, float fontSize, bool wrap)
         {
             GameObject textObject = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(TextMeshProUGUI));
             textObject.transform.SetParent(parent, false);
@@ -258,10 +259,11 @@ namespace Team.KYR.Scripts
             return tmp;
         }
 
-        private static void ApplyFont(TMP_Text tmp)
+        private void ApplyFont(TMP_Text tmp)
         {
-            if (TMP_Settings.defaultFontAsset != null)
-                tmp.font = TMP_Settings.defaultFontAsset;
+            TMP_FontAsset asset = fontAsset != null ? fontAsset : TMP_Settings.defaultFontAsset;
+            if (asset != null)
+                tmp.font = asset;
         }
 
         private static void Stretch(RectTransform rect)
