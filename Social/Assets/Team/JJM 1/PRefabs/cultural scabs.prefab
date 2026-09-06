@@ -5045,6 +5045,7 @@ GameObject:
   - component: {fileID: 7894880856847362709}
   - component: {fileID: 5385686274598632809}
   - component: {fileID: 6784218403097481067}
+  - component: {fileID: 8122093847561023941}
   m_Layer: 5
   m_Name: cultural scabs
   m_TagString: Untagged
@@ -5155,6 +5156,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69d29b41c4b1644cb309514386f3314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.CulturalScabs.CulturalScabHoverSensor
+  scab: {fileID: 5385686274598632809}
+--- !u!114 &8122093847561023941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899232257961674495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4e91a2b8d64f0e9a3c5d1f6e8b2470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.CulturalScabs.CulturalScabCountryDrop
   scab: {fileID: 5385686274598632809}
 --- !u!1 &2514274351291228523
 GameObject:

@@ -11089,12 +11089,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3936002729710706370, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 888123546}
-    - targetCorrespondingSourceObject: {fileID: 6495187818259403328, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6495187818259403328, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
 --- !u!224 &888123542 stripped
 RectTransform:
@@ -22050,6 +22044,7 @@ MonoBehaviour:
   spawnParent: {fileID: 116565806}
   dragArea: {fileID: 888123544}
   yesTextBundle: {fileID: 753204857}
+  countryManager: {fileID: 203035108}
   clearPlacedScabsOnAwake: 1
 --- !u!4 &2074622021
 Transform:

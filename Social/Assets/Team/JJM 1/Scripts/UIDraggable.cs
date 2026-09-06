@@ -94,12 +94,14 @@ namespace JJM.Scripts
         {
             _rectTransform.anchoredPosition +=
                 eventData.delta / _canvas.scaleFactor;
-
-            ClampToDragArea();
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            var countryDrop = GetComponent<CulturalScabCountryDrop>();
+            if (countryDrop != null && countryDrop.TryHandleRelease(eventData))
+                return;
+
             for (int i = 0; i < Draggables.Count; i++)
             {
                 UIDraggable other = Draggables[i];
@@ -117,6 +119,8 @@ namespace JJM.Scripts
                 Destroy(gameObject);
                 return;
             }
+
+            ClampToDragArea();
         }
 
         private void Merge(UIDraggable other)
@@ -196,7 +200,7 @@ namespace JJM.Scripts
         }
         
         
-        private void ClampToDragArea()
+        public void ClampToDragArea()
         {
             if (dragArea == null)
                 return;

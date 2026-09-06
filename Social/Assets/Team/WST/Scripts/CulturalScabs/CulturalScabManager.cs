@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Team.WST.Scripts.CoreSystem;
+using Team.WST.Scripts.Countries;
 using Team.WST.Scripts.Events;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Team.WST.Scripts.CulturalScabs
         [SerializeField] private RectTransform spawnParent;
         [SerializeField] private RectTransform dragArea;
         [SerializeField] private Transform yesTextBundle;
+        [SerializeField] private CountryManager countryManager;
         [SerializeField] private bool clearPlacedScabsOnAwake = true;
 
         private readonly List<CulturalScab> living = new List<CulturalScab>();
@@ -47,6 +49,10 @@ namespace Team.WST.Scripts.CulturalScabs
             var view = scab.GetComponent<JJM.Scripts.UIDraggable>();
             if (view != null)
                 view.BindRuntime(dragArea, yesTextBundle);
+
+            var drop = scab.GetComponent<CulturalScabCountryDrop>();
+            if (drop != null)
+                drop.Bind(countryManager, dragArea);
 
             scab.Initialize(uniqueness, cultures);
 
