@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Country.Informations.CountrySO
   <CountryType>k__BackingField: 2
   <CountryName>k__BackingField: "\uC77C\uBCF8"
-  <CountrySprite>k__BackingField: {fileID: -287535515434267827, guid: ac30a881901416746a343eb42f4e5dee, type: 3}
+  <CountrySprite>k__BackingField: {fileID: 8843990002893693027, guid: 22e30904fe0d8064c907482fb950c4b8, type: 3}
   <InitCulturalPower>k__BackingField: 300
   <CountryColor>k__BackingField: {r: 1, g: 0.45823798, b: 0, a: 1}
   <CultureHistoryEvents>k__BackingField:

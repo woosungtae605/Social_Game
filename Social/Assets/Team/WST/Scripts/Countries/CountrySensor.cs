@@ -2,6 +2,7 @@
 using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
 using Team.WST.Scripts.Events;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Team.WST.Scripts.Countries
 {
@@ -23,6 +24,9 @@ namespace Team.WST.Scripts.Countries
 
         private void Sensing()
         {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                return;
+
             Vector3 mousePosition = _mainCamera.ScreenToWorldPoint(inputSo.MousePos);
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 
