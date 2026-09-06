@@ -15,4 +15,5 @@ MonoBehaviour:
   displayName: "\uC6D0\uD53C\uC2A4 \uBC84\uB2DD\uBE14\uB7EC\uB4DC \uB9C8\uC774\uB108
     \uAC24\uB7EC\uB9AC"
   icon: {fileID: 0}
-  initialPosts: []
+  initialPosts:
+  - {fileID: 11400000, guid: a8f56c5f5c3b61a4bb7bdba68c924e5d, type: 2}
