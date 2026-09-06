@@ -1,6 +1,6 @@
+using Team.WST.Scripts.CoreSystem;
 using Team.WST.Scripts.Settings;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Team.WST.Scripts.Title
@@ -35,7 +35,7 @@ namespace Team.WST.Scripts.Title
 
         private void HandleStart()
         {
-            SceneManager.LoadScene(gameSceneName);
+            FadeManager.LoadSceneOrFallback(gameSceneName);
         }
 
         private void HandleOptions()
