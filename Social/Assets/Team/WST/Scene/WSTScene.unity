@@ -2833,7 +2833,6 @@ MonoBehaviour:
   postPool:
   - {fileID: 11400000, guid: 3097b478eae7d9945b099b8cf011d870, type: 2}
   - {fileID: 11400000, guid: e3b7fb59b18ff38498e9996184d1b099, type: 2}
-  - {fileID: 11400000, guid: 206b66270570ccd4f9dd503e10052bf6, type: 2}
   - {fileID: 11400000, guid: 7a70dd92bdef88f41a16374baa8b731d, type: 2}
   - {fileID: 11400000, guid: 21574be159c942344a92ba6c4259fa0a, type: 2}
   - {fileID: 11400000, guid: 601f6603b1a0fb04ca0e789d5b707c6a, type: 2}
@@ -2876,6 +2875,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf895473b923a994d862312fa3f7b3cb, type: 2}
   - {fileID: 11400000, guid: fa96196e715594248898913c46be48ce, type: 2}
   - {fileID: 11400000, guid: 92605f40caa08754198acbc1e34f3706, type: 2}
+  - {fileID: 11400000, guid: 92605f40caa08754198acbc1e34f3706, type: 2}
+  - {fileID: 11400000, guid: 206b66270570ccd4f9dd503e10052bf6, type: 2}
   minInterval: 25
   maxInterval: 35
 --- !u!1 &215094379

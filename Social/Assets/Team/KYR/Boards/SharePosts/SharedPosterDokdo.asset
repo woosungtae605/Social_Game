@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8c7d6e5f4b33210a9c8d7e6f5a4b3c2, type: 3}
-  m_Name: VillageHarmful_Origin_Content
+  m_Name: SharedPosterDokdo
   m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostContentSo
   body: "\uB3C5\uB3C4\uB294 \uC77C\uBCF8\uB545 \uB9DE\uB294\uB370 \uC65C \uC870\uC120\uC774
     \uC790\uAFB8 \uC9C0\uB4E4 \uB545\uC774\uB77C\uACE0 \uC6B0\uAE40? \u314B\u314B\u314B\n\uB2E4\uCF00\uC2DC\uB9C8\uB77C\uACE0
@@ -21,4 +21,4 @@ MonoBehaviour:
     \uC77C\uBCF8\uB545\uC784 \u314B\u314B\n\uBC18\uBC15\uC2DC \uAD6D\uC81C\uC815\uC138
     \uBAA8\uB974\uB294 \uC870\uC13C\uC9D5"
   images:
-  - {fileID: 8843990002893693027, guid: 22e30904fe0d8064c907482fb950c4b8, type: 3}
+  - {fileID: -4703003040893226481, guid: d611fe0c0853fff4f91e673521cf902f, type: 3}
