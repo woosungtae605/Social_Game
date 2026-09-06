@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Team.WST.Scripts.Countries.Informations;
+using Team.KYR.Scripts;
 using UnityEngine;
 
 namespace Team.WST.Scripts.CulturalScabs
@@ -8,19 +8,22 @@ namespace Team.WST.Scripts.CulturalScabs
     public class CulturalScabSpawner : MonoBehaviour
     {
         [SerializeField] private CulturalScabManager manager;
+        [SerializeField] private BoardManager boardManager;
+        [SerializeField] private BoardSo targetBoard;
         [SerializeField] private int initialCount = 8;
         [SerializeField] private int maxAlive = 12;
         [SerializeField] private float minUniqueness = 50f;
         [SerializeField] private float maxUniqueness = 50f;
         [SerializeField] private float minInterval = 20f;
         [SerializeField] private float maxInterval = 35f;
-        [SerializeField] [Range(0f, 1f)] private float mixChance = 0.35f;
 
-        private static readonly CountryType[] AllCultures =
-            (CountryType[])System.Enum.GetValues(typeof(CountryType));
+        private readonly List<BoardPostData> sharePosts = new List<BoardPostData>();
 
         private void Start()
         {
+            if (boardManager != null)
+                boardManager.EnsureInitialized();
+
             int spawnCount = Mathf.Max(0, initialCount);
             for (int i = 0; i < spawnCount; i++)
                 TrySpawnOne();
@@ -46,36 +49,39 @@ namespace Team.WST.Scripts.CulturalScabs
             if (manager.Scabs.Count >= maxAlive)
                 return;
 
+            BoardPostData post = PickSharePost();
+            if (post == null)
+                return;
+
             float uniqueness = Random.Range(minUniqueness, maxUniqueness);
-            manager.Spawn(uniqueness, RollCultures());
+            manager.Spawn(uniqueness, SharePostCultureRecipe.Build(post.OriginCountry, post.Kind));
         }
 
-        private List<CulturePortion> RollCultures()
+        private BoardPostData PickSharePost()
         {
-            var portions = new List<CulturePortion>();
-            if (AllCultures.Length == 0)
-                return portions;
+            CollectSharePosts();
+            if (sharePosts.Count == 0)
+                return null;
 
-            CountryType first = AllCultures[Random.Range(0, AllCultures.Length)];
-            bool mix = mixChance > 0f && AllCultures.Length > 1 && Random.value < mixChance;
-            if (!mix)
+            return sharePosts[Random.Range(0, sharePosts.Count)];
+        }
+
+        private void CollectSharePosts()
+        {
+            sharePosts.Clear();
+            if (boardManager == null || targetBoard == null)
+                return;
+
+            boardManager.EnsureInitialized();
+            IReadOnlyList<BoardPostData> posts = boardManager.Posts;
+            for (int i = 0; i < posts.Count; i++)
             {
-                portions.Add(new CulturePortion(first, 100f));
-                return portions;
-            }
+                BoardPostData post = posts[i];
+                if (post == null || post.Board != targetBoard || post.Definition == null)
+                    continue;
 
-            CountryType second = first;
-            int guard = 0;
-            while (second == first && guard < 8)
-            {
-                second = AllCultures[Random.Range(0, AllCultures.Length)];
-                guard++;
+                sharePosts.Add(post);
             }
-
-            float firstPercent = Random.Range(55f, 80f);
-            portions.Add(new CulturePortion(first, firstPercent));
-            portions.Add(new CulturePortion(second, 100f - firstPercent));
-            return portions;
         }
     }
 }
