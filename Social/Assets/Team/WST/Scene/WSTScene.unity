@@ -2616,6 +2616,7 @@ GameObject:
   - component: {fileID: 203035108}
   - component: {fileID: 203035110}
   - component: {fileID: 203035109}
+  - component: {fileID: 203035111}
   m_Layer: 0
   m_Name: CountryManager
   m_TagString: Untagged
@@ -2695,6 +2696,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 601f6603b1a0fb04ca0e789d5b707c6a, type: 2}
   minInterval: 20
   maxInterval: 35
+--- !u!114 &203035111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203035106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90438229e3bb3f74fbe3e4164c98f6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.BoardPostExpirySystem
+  boardManager: {fileID: 1890524766}
+  lifetimeSeconds: 300
+  checkInterval: 1
 --- !u!1 &215094379
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,6 +4308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359515055}
   - component: {fileID: 359515054}
+  - component: {fileID: 359515056}
   m_Layer: 0
   m_Name: SpreadSystem
   m_TagString: Untagged
@@ -4327,6 +4344,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &359515056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359515053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c3ce8e2a7e39942bbe105497d43b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.CountryCultureSpreads.GoodPostKoreanSpreadSystem
+  boardManager: {fileID: 1890524766}
+  countryManager: {fileID: 203035108}
+  sourceCulture: 0
+  tickSeconds: 10
 --- !u!1 &394337314
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,11 @@ namespace Team.KYR.Scripts
 
         public bool IsOpen => isOpen;
 
+        public bool IsShowing(BoardPostData post)
+        {
+            return isOpen && currentPost == post;
+        }
+
         private void Awake()
         {
             if (boardManager == null)

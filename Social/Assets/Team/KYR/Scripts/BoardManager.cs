@@ -144,6 +144,37 @@ namespace Team.KYR.Scripts
             RefreshPostList();
         }
 
+        public void RemoveExpiredPosts(float maxAgeSeconds)
+        {
+            EnsureInitialized();
+
+            if (maxAgeSeconds <= 0f)
+                return;
+
+            bool removed = false;
+            bool hideDetail = false;
+            float now = Time.time;
+
+            for (int i = unlockedPosts.Count - 1; i >= 0; i--)
+            {
+                BoardPostData post = unlockedPosts[i];
+                if (post == null || now - post.SpawnedAt < maxAgeSeconds)
+                    continue;
+
+                if (postDetailView != null && postDetailView.IsShowing(post))
+                    hideDetail = true;
+
+                unlockedPosts.RemoveAt(i);
+                removed = true;
+            }
+
+            if (hideDetail)
+                postDetailView.Hide();
+
+            if (removed)
+                RefreshPostList();
+        }
+
         public void AddDislike(BoardPostData post)
         {
             if (post == null || !unlockedPosts.Contains(post))

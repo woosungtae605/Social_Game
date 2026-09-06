@@ -61,14 +61,15 @@ namespace Team.KYR.Scripts
             this.spawnedAt = spawnedAt;
         }
 
-        public void VoteRecommend()
+        public bool VoteRecommend()
         {
             if (recommendCount == 1)
-                return;
+                return false;
 
             recommendCount = 1;
             dislikeCount = 0;
             isConcept = true;
+            return true;
         }
 
         public void VoteDislike()
