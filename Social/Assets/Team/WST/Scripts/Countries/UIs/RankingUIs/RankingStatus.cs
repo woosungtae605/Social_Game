@@ -1,6 +1,7 @@
 using System.Linq;
 using Team.WST.Scripts.CoreSystem;
-using Team.WST.Scripts.Countries.UIs.CountryInformationUIs;
+using Team.WST.Scripts.Countries;
+using Team.WST.Scripts.Countries.Informations;
 using Team.WST.Scripts.Events;
 using UnityEngine;
 
@@ -55,7 +56,7 @@ namespace Team.WST.Scripts.Countries.UIs.RankingUIs
 
             _pool.Clear();
 
-            var ranked = countryManager.CountriesDict.Values.OrderByDescending(GetOwnCulturePower);
+            var ranked = countryManager.CountriesDict.Values.OrderByDescending(GetWorldCulturePower);
 
             int rank = 1;
             foreach (AbstractCountry country in ranked)
@@ -64,18 +65,29 @@ namespace Team.WST.Scripts.Countries.UIs.RankingUIs
                 item.transform.SetSiblingIndex(rank - 1);
                 item.SetRank(rank);
                 item.SetCountryName(country.DisplayName);
-                item.SetCulturePower(GetOwnCulturePower(country));
+                item.SetCulturePower(GetWorldCulturePower(country));
                 rank++;
             }
         }
 
-        private static int GetOwnCulturePower(ICultureShowUI country)
+        private int GetWorldCulturePower(AbstractCountry country)
         {
-            if (country.CulturePowerDict != null &&
-                country.CulturePowerDict.TryGetValue(country.CountryType, out int power))
-                return power;
+            if (country == null || countryManager == null || countryManager.CountriesDict == null)
+                return 0;
 
-            return 0;
+            CountryType cultureType = country.CountryType;
+            int total = 0;
+
+            foreach (AbstractCountry other in countryManager.CountriesDict.Values)
+            {
+                if (other == null || other.CulturePowerDict == null)
+                    continue;
+
+                if (other.CulturePowerDict.TryGetValue(cultureType, out int power))
+                    total += power;
+            }
+
+            return total;
         }
     }
 }
