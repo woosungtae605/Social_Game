@@ -2,6 +2,6 @@
 {
     public enum CountryType
     {
-        KOREA, USA, JAPAN, CHINA, MONGOL, RUSSIA
+        KOREA, USA, JAPAN, CHINA, MONGOL, RUSSIA, INDIA
     }
 }
