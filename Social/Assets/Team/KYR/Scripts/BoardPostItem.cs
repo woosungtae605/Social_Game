@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,18 +14,23 @@ namespace Team.KYR.Scripts
         [SerializeField] private Button openButton;
 
         [Header("Post Data")]
+        [SerializeField] private TMP_Text numberText;
         [SerializeField] private TMP_Text writerText;
         [SerializeField] private TMP_Text titleText;
         [SerializeField] private TMP_Text viewCountText;
         [SerializeField] private TMP_Text dateText;
+        [SerializeField] private TMP_Text recommendText;
 
         private BoardPostData postData;
         private BoardManager boardManager;
 
         private void Awake()
         {
-            deleteButton.onClick.AddListener(DeletePost);
-            conceptToggleButton.onClick.AddListener(ToggleConcept);
+            if (deleteButton != null)
+                deleteButton.onClick.AddListener(DeletePost);
+
+            if (conceptToggleButton != null)
+                conceptToggleButton.onClick.AddListener(ToggleConcept);
 
             if (openButton == null)
                 openButton = GetComponent<Button>();
@@ -43,17 +49,34 @@ namespace Team.KYR.Scripts
             postData = data;
             boardManager = manager;
 
+            if (numberText != null)
+                numberText.text = ((Mathf.Abs(postData.Title.GetHashCode()) % 900000) + 100000).ToString();
+
             writerText.text = postData.Writer;
             titleText.text = postData.Title;
-            viewCountText.text = postData.ViewCount.ToString("N0");
-            dateText.text = postData.CreatedAt.ToString("yyyy.MM.dd");
+            viewCountText.text = postData.ViewCount.ToString();
+            dateText.text = FormatDate(postData.CreatedAt);
+
+            if (recommendText != null)
+                recommendText.text = postData.IsConcept ? "1" : "0";
 
             UpdateConceptButton();
         }
 
         private void UpdateConceptButton()
         {
+            if (conceptToggleText == null || postData == null)
+                return;
+
             conceptToggleText.text = postData.IsConcept ? "↓" : "✓";
+        }
+
+        private static string FormatDate(DateTime createdAt)
+        {
+            if (createdAt.Date == DateTime.Today)
+                return createdAt.ToString("HH:mm");
+
+            return createdAt.ToString("yy.MM.dd");
         }
 
         private void OpenPost()
@@ -62,7 +85,7 @@ namespace Team.KYR.Scripts
                 return;
 
             boardManager.OpenPost(postData);
-            viewCountText.text = postData.ViewCount.ToString("N0");
+            viewCountText.text = postData.ViewCount.ToString();
         }
 
         private void DeletePost()
@@ -83,8 +106,11 @@ namespace Team.KYR.Scripts
 
         private void OnDestroy()
         {
-            deleteButton.onClick.RemoveListener(DeletePost);
-            conceptToggleButton.onClick.RemoveListener(ToggleConcept);
+            if (deleteButton != null)
+                deleteButton.onClick.RemoveListener(DeletePost);
+
+            if (conceptToggleButton != null)
+                conceptToggleButton.onClick.RemoveListener(ToggleConcept);
 
             if (openButton != null)
                 openButton.onClick.RemoveListener(OpenPost);

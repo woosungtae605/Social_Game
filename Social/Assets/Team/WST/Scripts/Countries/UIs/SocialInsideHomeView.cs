@@ -72,6 +72,9 @@ namespace Team.WST.Scripts.Countries.UIs
             if (searchField != null)
                 searchField.SetTextWithoutNotify(string.Empty);
 
+            if (panelController != null)
+                panelController.CloseBoard();
+
             RefreshList();
         }
 

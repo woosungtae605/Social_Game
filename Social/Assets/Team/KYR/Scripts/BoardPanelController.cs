@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,14 +7,28 @@ namespace Team.KYR.Scripts
     public class BoardPanelController : MonoBehaviour
     {
         [SerializeField] private GameObject boardPanel;
+        [SerializeField] private GameObject emptyState;
         [SerializeField] private Button openButton;
         [SerializeField] private Button closeButton;
+        [SerializeField] private Button allPostsTab;
+        [SerializeField] private Button conceptPostsTab;
+        [SerializeField] private TMP_Text allPostsLabel;
+        [SerializeField] private TMP_Text conceptPostsLabel;
+        [SerializeField] private GameObject allTabUnderline;
+        [SerializeField] private GameObject conceptTabUnderline;
         [SerializeField] private BoardManager boardManager;
         [SerializeField] private BoardPostDetailView postDetailView;
 
+        private static readonly Color ActiveTab = new Color(59f / 255f, 72f / 255f, 144f / 255f, 1f);
+        private static readonly Color InactiveTab = new Color(0.45f, 0.45f, 0.48f, 1f);
+
         private void Awake()
         {
-            boardPanel.SetActive(false);
+            if (boardPanel != null)
+                boardPanel.SetActive(false);
+
+            if (emptyState != null)
+                emptyState.SetActive(true);
 
             if (boardManager == null)
                 boardManager = GetComponent<BoardManager>();
@@ -24,7 +39,14 @@ namespace Team.KYR.Scripts
             if (closeButton != null)
                 closeButton.onClick.AddListener(CloseBoard);
 
+            if (allPostsTab != null)
+                allPostsTab.onClick.AddListener(ShowAllPosts);
+
+            if (conceptPostsTab != null)
+                conceptPostsTab.onClick.AddListener(ShowConceptPosts);
+
             BindBoardButtons();
+            ApplyTabStyle(false);
         }
 
         public void OpenBoard(BoardSo board)
@@ -36,7 +58,68 @@ namespace Team.KYR.Scripts
                 postDetailView.Hide();
 
             boardManager.SelectBoard(board);
-            boardPanel.SetActive(true);
+
+            if (emptyState != null)
+                emptyState.SetActive(false);
+
+            if (boardPanel != null)
+                boardPanel.SetActive(true);
+
+            ApplyTabStyle(false);
+        }
+
+        public void CloseBoard()
+        {
+            if (postDetailView != null && postDetailView.IsOpen)
+            {
+                postDetailView.Hide();
+                return;
+            }
+
+            if (boardPanel != null)
+                boardPanel.SetActive(false);
+
+            if (emptyState != null)
+                emptyState.SetActive(true);
+
+            ApplyTabStyle(false);
+        }
+
+        private void ShowAllPosts()
+        {
+            if (boardManager != null)
+                boardManager.ShowAllPosts();
+
+            ApplyTabStyle(false);
+        }
+
+        private void ShowConceptPosts()
+        {
+            if (boardManager != null)
+                boardManager.ShowConceptPosts();
+
+            ApplyTabStyle(true);
+        }
+
+        private void ApplyTabStyle(bool conceptSelected)
+        {
+            if (allPostsLabel != null)
+            {
+                allPostsLabel.color = conceptSelected ? InactiveTab : ActiveTab;
+                allPostsLabel.fontStyle = conceptSelected ? FontStyles.Normal : FontStyles.Bold;
+            }
+
+            if (conceptPostsLabel != null)
+            {
+                conceptPostsLabel.color = conceptSelected ? ActiveTab : InactiveTab;
+                conceptPostsLabel.fontStyle = conceptSelected ? FontStyles.Bold : FontStyles.Normal;
+            }
+
+            if (allTabUnderline != null)
+                allTabUnderline.SetActive(!conceptSelected);
+
+            if (conceptTabUnderline != null)
+                conceptTabUnderline.SetActive(conceptSelected);
         }
 
         private void BindBoardButtons()
@@ -90,21 +173,16 @@ namespace Team.KYR.Scripts
                 existingButtons[i].gameObject.SetActive(false);
         }
 
-        private void CloseBoard()
-        {
-            if (postDetailView != null && postDetailView.IsOpen)
-            {
-                postDetailView.Hide();
-                return;
-            }
-
-            boardPanel.SetActive(false);
-        }
-
         private void OnDestroy()
         {
             if (closeButton != null)
                 closeButton.onClick.RemoveListener(CloseBoard);
+
+            if (allPostsTab != null)
+                allPostsTab.onClick.RemoveListener(ShowAllPosts);
+
+            if (conceptPostsTab != null)
+                conceptPostsTab.onClick.RemoveListener(ShowConceptPosts);
         }
     }
 }
