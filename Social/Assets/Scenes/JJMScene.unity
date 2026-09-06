@@ -615,7 +615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &679660340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,12 +1189,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3936002729710706370, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 577341453}
-    - targetCorrespondingSourceObject: {fileID: 6495187818259403328, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 6495187818259403328, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a170dbfd243be4744a1b42e0ff6a6ba8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1202,6 +1196,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 2326572148166197680}
   - {fileID: 1205716664}
   - {fileID: 679660341}
+  - {fileID: 2326572148166197680}
