@@ -1,4 +1,5 @@
 using System;
+using Team.WST.Scripts.Countries.Informations;
 using UnityEngine;
 
 namespace Team.KYR.Scripts
@@ -25,6 +26,9 @@ namespace Team.KYR.Scripts
         public int RecommendCount => recommendCount;
         public int DislikeCount => dislikeCount;
         public bool IsHarmful => definition != null && definition.IsHarmful;
+        public bool IsGood => definition != null && definition.IsGood;
+        public int Kind => definition != null ? definition.Kind : 0;
+        public CountryType OriginCountry => definition != null ? definition.OriginCountry : CountryType.KOREA;
         public float SpawnedAt => spawnedAt;
 
         public string Body

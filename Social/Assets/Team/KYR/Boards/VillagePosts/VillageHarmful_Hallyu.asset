@@ -16,5 +16,5 @@ MonoBehaviour:
   title: "\uD55C\uB958\uB294 \uC870\uC791\uC784 \uD574\uC678\uC5D0\uC11C \uC544\uBB34\uB3C4
     \uC548 \uBD04"
   initialViewCount: 7
-  isHarmful: 1
+  kind: 0
   content: {fileID: 11400000, guid: b0b513250fa22bf46a0c1de029af051d, type: 2}

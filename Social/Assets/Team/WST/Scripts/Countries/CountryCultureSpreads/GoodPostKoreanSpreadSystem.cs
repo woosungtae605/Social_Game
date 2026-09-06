@@ -7,6 +7,7 @@ namespace Team.WST.Scripts.Countries.CountryCultureSpreads
     public class GoodPostKoreanSpreadSystem : MonoBehaviour
     {
         [SerializeField] private BoardManager boardManager;
+        [SerializeField] private BoardSo targetBoard;
         [SerializeField] private CountryManager countryManager;
         [SerializeField] private CountryType sourceCulture = CountryType.KOREA;
         [SerializeField] private float tickSeconds = 10f;
@@ -45,7 +46,7 @@ namespace Team.WST.Scripts.Countries.CountryCultureSpreads
 
         private int CountGoodRecommendedPosts()
         {
-            if (boardManager == null)
+            if (boardManager == null || targetBoard == null)
                 return 0;
 
             int count = 0;
@@ -53,7 +54,10 @@ namespace Team.WST.Scripts.Countries.CountryCultureSpreads
             for (int i = 0; i < posts.Count; i++)
             {
                 BoardPostData post = posts[i];
-                if (post == null || post.IsHarmful || !post.IsConcept)
+                if (post == null || post.Board != targetBoard || !post.IsGood || !post.IsConcept)
+                    continue;
+
+                if (post.OriginCountry != sourceCulture)
                     continue;
 
                 count++;

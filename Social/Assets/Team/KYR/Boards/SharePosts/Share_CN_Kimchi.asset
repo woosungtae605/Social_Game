@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a99d122440ef7ae4ab68ff0ae322dc1e, type: 3}
-  m_Name: VillageNormal_Stew
+  m_Name: Share_CN_Kimchi
   m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostSo
-  writer: "\uC9D1\uBC25\uB7EC"
-  title: "\uC9D1\uBC25 \uB41C\uC7A5\uCC0C\uAC1C \uB808\uC2DC\uD53C \uACF5\uC720\uD568"
-  initialViewCount: 22
-  kind: 100
-  content: {fileID: 11400000, guid: 9e0b30c5977329446b1ddf63fc35208b, type: 2}
+  writer: "\uC0AC\uC2E4\uACE0\uC218"
+  title: "\uAC1C\uB9DB\uC788\uB294 \uC591\uBC30\uCD94 \uC74C\uC2DD \uCD94\uCC9C\uD55C\uB2E4"
+  initialViewCount: 6
+  kind: 10
+  originCountry: 3
+  content: {fileID: 11400000, guid: abe6d1ae14fd85249884fdc3c58dabce, type: 2}

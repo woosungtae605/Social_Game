@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a99d122440ef7ae4ab68ff0ae322dc1e, type: 3}
-  m_Name: BoardPost
-  m_EditorClassIdentifier: Assembly-CSharp::BoardPostSO
-  writer: "\uC7A5\uC900\uBBFC"
-  title: "\uD55C\uB0A8 \uC720\uCDA9\uC774 \uC790\uAFB8 \uBE44\uBCBC --"
-  initialViewCount: 12
-  isHarmful: 1
-  content: {fileID: 11400000, guid: c0e9f8a7b6d55432c1e0f9a8b7c6d5e4, type: 2}
+  m_Name: Share_US_Marvel
+  m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostSo
+  writer: NYC
+  title: "\uB9C8\uBE14 \uC2E0\uC791 ost \uBBF8\uCCE4\uB2E4"
+  initialViewCount: 19
+  kind: 80
+  originCountry: 1
+  content: {fileID: 11400000, guid: 065704d3aea93cc459338815366a8d13, type: 2}

@@ -15,5 +15,5 @@ MonoBehaviour:
   writer: "\uD55C\uBCF5\uC694\uC815"
   title: "\uACBD\uBCF5\uAD81 \uD55C\uBCF5 \uB300\uC5EC\uD558\uACE0 \uC654\uC74C"
   initialViewCount: 18
-  isHarmful: 0
+  kind: 100
   content: {fileID: 11400000, guid: 984a5d6a4de615044a0ad968d7e30882, type: 2}
