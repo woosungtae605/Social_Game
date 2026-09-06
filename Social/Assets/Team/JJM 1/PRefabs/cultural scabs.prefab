@@ -5043,6 +5043,8 @@ GameObject:
   - component: {fileID: 6187631478044987761}
   - component: {fileID: 1254408428491386129}
   - component: {fileID: 7894880856847362709}
+  - component: {fileID: 5385686274598632809}
+  - component: {fileID: 6784218403097481067}
   m_Layer: 5
   m_Name: cultural scabs
   m_TagString: Untagged
@@ -5127,6 +5129,33 @@ MonoBehaviour:
   yesTextBundle: {fileID: 0}
   dragArea: {fileID: 0}
   _yesText: {fileID: 1680017408581163975, guid: 427b541cb4858e246a27fc8e4e483c99, type: 3}
+--- !u!114 &5385686274598632809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899232257961674495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b5107ae600f74428c95ecf213b55eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.CulturalScabs.CulturalScab
+  <Uniqueness>k__BackingField: 50
+  cultures: []
+--- !u!114 &6784218403097481067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899232257961674495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69d29b41c4b1644cb309514386f3314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.CulturalScabs.CulturalScabHoverSensor
+  scab: {fileID: 5385686274598632809}
 --- !u!1 &2514274351291228523
 GameObject:
   m_ObjectHideFlags: 0

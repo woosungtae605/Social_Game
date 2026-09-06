@@ -6,6 +6,7 @@ using DevLib.ModuleSystem;
 using DevLib.ObjectPool.Runtime;
 using DG.Tweening;
 using JJM.Scripts.CoreSystem.Effect;
+using Team.WST.Scripts.CulturalScabs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -54,17 +55,11 @@ namespace JJM.Scripts
             _text = GetComponentInChildren<TextMeshProUGUI>();
             _vfxModule = GetModule<IVfxModule>();
 
-            _text.text =
-                ((int)Uniqueness).ToString(CultureInfo.InvariantCulture);
+            RefreshUniquenessText();
 
             Debug.Assert(
                 _vfxModule != null,
                 "Vfx 모듈을 넣어주세요."
-            );
-
-            Debug.Assert(
-                dragArea != null,
-                "드래그 가능한 영역(Drag Area)을 넣어주세요."
             );
         }
 
@@ -77,6 +72,18 @@ namespace JJM.Scripts
         private void OnDisable()
         {
             Draggables.Remove(this);
+        }
+
+        public void BindRuntime(RectTransform area, Transform mergeTextBundle)
+        {
+            dragArea = area;
+            yesTextBundle = mergeTextBundle;
+        }
+
+        public void ApplyUniqueness(float uniqueness)
+        {
+            Uniqueness = uniqueness;
+            RefreshUniquenessText();
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -138,6 +145,11 @@ namespace JJM.Scripts
 
             Uniqueness = totalPower;
 
+            var selfScab = GetComponent<CulturalScab>();
+            var otherScab = other.GetComponent<CulturalScab>();
+            if (selfScab != null && otherScab != null)
+                selfScab.Absorb(otherScab, Uniqueness);
+
             _vfxModule.PlayVfx(
                 wowValue > 0f
                     ? assetNameGreen.AssetHash
@@ -172,14 +184,22 @@ namespace JJM.Scripts
                 Destroy(t.gameObject);
             });
 
-            _text.text =
-                ((int)Uniqueness)
-                .ToString(CultureInfo.InvariantCulture);
+            RefreshUniquenessText();
 
             if (totalPower <= 0)
             {
                 Destroy(gameObject);
             }
+        }
+
+        private void RefreshUniquenessText()
+        {
+            if (_text == null)
+                return;
+
+            _text.text =
+                ((int)Uniqueness)
+                .ToString(CultureInfo.InvariantCulture);
         }
         
         
