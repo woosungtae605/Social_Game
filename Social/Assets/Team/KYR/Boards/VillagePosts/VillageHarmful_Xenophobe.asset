@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a99d122440ef7ae4ab68ff0ae322dc1e, type: 3}
-  m_Name: BoardPost
-  m_EditorClassIdentifier: Assembly-CSharp::BoardPostSO
-  writer: "\uC7A5\uC900\uBBFC"
-  title: "\uD55C\uB0A8 \uC720\uCDA9\uC774 \uC790\uAFB8 \uBE44\uBCBC --"
-  initialViewCount: 12
+  m_Name: VillageHarmful_Xenophobe
+  m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostSo
+  writer: "\uC560\uAD6D\uC790"
+  title: "\uC678\uAD6D\uC778 \uB2E4 \uAEBC\uC838 \uD55C\uAD6D\uC740 \uD55C\uAD6D\uC778\uB9CC"
+  initialViewCount: 4
   isHarmful: 1
-  content: {fileID: 11400000, guid: c0e9f8a7b6d55432c1e0f9a8b7c6d5e4, type: 2}
+  content: {fileID: 11400000, guid: 079a61cc4740fbc428d3e2e59813a797, type: 2}

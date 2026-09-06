@@ -41,15 +41,19 @@ namespace Team.WST.Scripts.Countries
 
         public void AddCulturePower(CountryType countryType, int power)
         {
-            OnAddCulturePower?.Invoke(countryType, ref power);
-            if (_countriesCulturePowerDict.ContainsKey(countryType))
-            {
-                _countriesCulturePowerDict[countryType] += power;
-            }
-            else
-            {
-                _countriesCulturePowerDict[countryType] = power;
-            }
+            if (power > 0)
+                OnAddCulturePower?.Invoke(countryType, ref power);
+
+            if (!_countriesCulturePowerDict.TryGetValue(countryType, out int current))
+                current = 0;
+
+            if (power < 0 && current + power < 0)
+                power = -current;
+
+            if (power == 0)
+                return;
+
+            _countriesCulturePowerDict[countryType] = current + power;
             _allCulturePower += power;
             Bus<CulturePowerChangedEvent>.RaiseEvent(new CulturePowerChangedEvent(CountryType, countryType, power));
         }

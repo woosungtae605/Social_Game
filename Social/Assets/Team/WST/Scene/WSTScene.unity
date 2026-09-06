@@ -2614,6 +2614,8 @@ GameObject:
   m_Component:
   - component: {fileID: 203035107}
   - component: {fileID: 203035108}
+  - component: {fileID: 203035110}
+  - component: {fileID: 203035109}
   m_Layer: 0
   m_Name: CountryManager
   m_TagString: Untagged
@@ -2649,6 +2651,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9a17cd7fd0467bab989e121d62cf27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.CountryManager
+--- !u!114 &203035109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203035106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6945fb8a2116ded408dbf8809a0fab76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.HarmfulKoreanCulturePenalty
+  boardManager: {fileID: 1890524766}
+  targetBoard: {fileID: 11400000, guid: b8e4c1d29a6f4e3ab7c5d0e1f2a3b4c5, type: 2}
+  countryManager: {fileID: 203035108}
+  koreanCulture: 0
+  graceSeconds: 20
+  tickSeconds: 3
+  nonConceptPenalty: 10
+  conceptPenalty: 50
+--- !u!114 &203035110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203035106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d66602f47cf1884ab7e8441ffda12c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Team.WST.Scripts.Countries.UIs.BoardTimedPostSpawner
+  boardManager: {fileID: 1890524766}
+  board: {fileID: 11400000, guid: b8e4c1d29a6f4e3ab7c5d0e1f2a3b4c5, type: 2}
+  postPool:
+  - {fileID: 11400000, guid: 77d4b8b6256897946b09094c4b122277, type: 2}
+  - {fileID: 11400000, guid: 3097b478eae7d9945b099b8cf011d870, type: 2}
+  - {fileID: 11400000, guid: e3b7fb59b18ff38498e9996184d1b099, type: 2}
+  - {fileID: 11400000, guid: 206b66270570ccd4f9dd503e10052bf6, type: 2}
+  - {fileID: 11400000, guid: 7a70dd92bdef88f41a16374baa8b731d, type: 2}
+  - {fileID: 11400000, guid: 21574be159c942344a92ba6c4259fa0a, type: 2}
+  - {fileID: 11400000, guid: 601f6603b1a0fb04ca0e789d5b707c6a, type: 2}
+  minInterval: 20
+  maxInterval: 35
 --- !u!1 &215094379
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ namespace Team.KYR.Scripts
         [SerializeField] private bool isConcept;
         [SerializeField] private int recommendCount;
         [SerializeField] private int dislikeCount;
+        [SerializeField] private float spawnedAt;
 
         public BoardSo Board => board;
         public BoardPostSo Definition => definition;
@@ -23,6 +24,8 @@ namespace Team.KYR.Scripts
         public bool IsConcept => isConcept;
         public int RecommendCount => recommendCount;
         public int DislikeCount => dislikeCount;
+        public bool IsHarmful => definition != null && definition.IsHarmful;
+        public float SpawnedAt => spawnedAt;
 
         public string Body
         {
@@ -46,7 +49,7 @@ namespace Team.KYR.Scripts
             }
         }
 
-        public BoardPostData(BoardSo board, BoardPostSo definition, DateTime createdAt)
+        public BoardPostData(BoardSo board, BoardPostSo definition, DateTime createdAt, float spawnedAt)
         {
             this.board = board;
             this.definition = definition;
@@ -55,6 +58,7 @@ namespace Team.KYR.Scripts
             isConcept = false;
             recommendCount = 0;
             dislikeCount = 0;
+            this.spawnedAt = spawnedAt;
         }
 
         public void VoteRecommend()

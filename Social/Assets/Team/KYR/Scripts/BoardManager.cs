@@ -18,6 +18,9 @@ namespace Team.KYR.Scripts
 
         private BoardSo currentBoard;
         private bool showConceptOnly;
+        private bool initialized;
+
+        public IReadOnlyList<BoardPostData> Posts => unlockedPosts;
 
         public BoardSo[] Boards
         {
@@ -32,6 +35,16 @@ namespace Team.KYR.Scripts
 
         private void Awake()
         {
+            EnsureInitialized();
+        }
+
+        public void EnsureInitialized()
+        {
+            if (initialized)
+                return;
+
+            initialized = true;
+
             if (postDetailView == null)
                 postDetailView = GetComponent<BoardPostDetailView>();
 
@@ -92,6 +105,19 @@ namespace Team.KYR.Scripts
                 return;
 
             UnlockPost(board, postSo);
+        }
+
+        public void SpawnPost(BoardSo board, BoardPostSo postSo)
+        {
+            EnsureInitialized();
+
+            if (board == null || postSo == null)
+                return;
+
+            unlockedPosts.Add(new BoardPostData(board, postSo, DateTime.Now, Time.time));
+
+            if (currentBoard == board)
+                RefreshPostList();
         }
 
         public void DeletePost(BoardPostData post)
@@ -157,7 +183,7 @@ namespace Team.KYR.Scripts
             if (board == null || postSo == null || IsPostUnlocked(board, postSo))
                 return false;
 
-            BoardPostData postData = new BoardPostData(board, postSo, createdAt);
+            BoardPostData postData = new BoardPostData(board, postSo, createdAt, Time.time);
             unlockedPosts.Add(postData);
             return true;
         }
