@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3e1a7b4d2f48e0a6b5c8d9e0f1a2b3, type: 3}
   m_Name: NoticeBoard
   m_EditorClassIdentifier: Assembly-CSharp::BoardSo
-  displayName: "\uACF5\uC9C0\uAC8C\uC2DC\uD310"
+  displayName: "\uBB38\uD654 \uACF5\uC720 \uAC24\uB7EC\uB9AC"
   icon: {fileID: 0}
   initialPosts:
   - {fileID: 11400000, guid: 87e6f3784cb1eab41983cb751daf3785, type: 2}

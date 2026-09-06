@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c3e1a7b4d2f48e0a6b5c8d9e0f1a2b3, type: 3}
-  m_Name: QuestionBoard
+  m_Name: SilsiganBoard
   m_EditorClassIdentifier: Assembly-CSharp::BoardSo
-  displayName: "\uC9C8\uBB38\uAC8C\uC2DC\uD310"
+  displayName: "\uC6D0\uD53C\uC2A4 \uB9C8\uC774\uB108 \uAC24\uB7EC\uB9AC"
   icon: {fileID: 0}
   initialPosts: []

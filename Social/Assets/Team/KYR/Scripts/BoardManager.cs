@@ -99,6 +99,35 @@ namespace Team.KYR.Scripts
             if (!unlockedPosts.Remove(post))
                 return;
 
+            if (postDetailView != null)
+                postDetailView.Hide();
+
+            RefreshPostList();
+        }
+
+        public void RecommendConcept(BoardPostData post)
+        {
+            if (post == null || !unlockedPosts.Contains(post))
+                return;
+
+            post.VoteRecommend();
+
+            if (postDetailView != null)
+                postDetailView.RefreshVoteState();
+
+            RefreshPostList();
+        }
+
+        public void AddDislike(BoardPostData post)
+        {
+            if (post == null || !unlockedPosts.Contains(post))
+                return;
+
+            post.VoteDislike();
+
+            if (postDetailView != null)
+                postDetailView.RefreshVoteState();
+
             RefreshPostList();
         }
 
@@ -201,6 +230,7 @@ namespace Team.KYR.Scripts
             {
                 GameObject child = postContent.GetChild(i).gameObject;
                 child.SetActive(false);
+                child.transform.SetParent(null);
                 Destroy(child);
             }
         }

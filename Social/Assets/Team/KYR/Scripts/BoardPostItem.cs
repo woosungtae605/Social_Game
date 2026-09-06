@@ -58,7 +58,7 @@ namespace Team.KYR.Scripts
             dateText.text = FormatDate(postData.CreatedAt);
 
             if (recommendText != null)
-                recommendText.text = postData.IsConcept ? "1" : "0";
+                recommendText.text = postData.RecommendCount.ToString();
 
             UpdateConceptButton();
         }
