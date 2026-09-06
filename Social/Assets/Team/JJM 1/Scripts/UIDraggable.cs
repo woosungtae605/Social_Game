@@ -121,37 +121,30 @@ namespace JJM.Scripts
 
         private void Merge(UIDraggable other)
         {
-            float wowValue =
-                Random.Range(-0.6666f, 1.5f);
-
-            float extraPower = other.Uniqueness * wowValue;
-            
-            float totalPower =
-                Uniqueness +
-                extraPower;
+            CulturalScabMergeResult merge = CulturalScabMergeCalculator.Combine(Uniqueness, other.Uniqueness);
+            float extraPower = merge.ExtraPower;
+            float totalPower = merge.TotalUniqueness;
 
             float otherRatio =
                 totalPower > 0f
                     ? other.Uniqueness / totalPower
                     : 0.5f;
 
-            
-            
             _image.color = Color.Lerp(
                 _image.color,
                 other._image.color,
                 otherRatio
             );
 
-            Uniqueness = totalPower;
-
             var selfScab = GetComponent<CulturalScab>();
             var otherScab = other.GetComponent<CulturalScab>();
-            if (selfScab != null && otherScab != null)
-                selfScab.Absorb(otherScab, Uniqueness);
+            if (!merge.Destroyed && selfScab != null && otherScab != null)
+                selfScab.Absorb(otherScab, totalPower);
+
+            Uniqueness = totalPower;
 
             _vfxModule.PlayVfx(
-                wowValue > 0f
+                merge.Succeeded
                     ? assetNameGreen.AssetHash
                     : assetNameRed.AssetHash
             );
