@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d122440ef7ae4ab68ff0ae322dc1e, type: 3}
+  m_Name: Post_Speaki_K
+  m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostSo
+  writer: "\uC2A4\uD554\uC774"
+  title: "\uAC00\uB054 \uBCF4\uC774\uB294\uAC70"
+  initialViewCount: 0
+  kind: 95
+  originCountry: 0
+  content: {fileID: 11400000, guid: 628fac80ddaa8ba41b37242f6ad2fdb6, type: 2}
