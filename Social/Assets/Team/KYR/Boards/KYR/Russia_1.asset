@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d122440ef7ae4ab68ff0ae322dc1e, type: 3}
+  m_Name: Russia_1
+  m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostSo
+  writer: "\uD06C\uB9BC\uBC14\uC2A4224"
+  title: "\uACA8\uC6B8\uC5D0 \uD55C \uBC88\uCBE4 \uD574\uBCF4\uBA74 \uC88B\uC744
+    \uAC83"
+  initialViewCount: 10
+  kind: 80
+  originCountry: 5
+  content: {fileID: 11400000, guid: 5b269cabd17494e4aa6f8d01c5ccd040, type: 2}
