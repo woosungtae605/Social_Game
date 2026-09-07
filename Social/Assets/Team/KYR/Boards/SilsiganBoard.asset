@@ -17,3 +17,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   initialPosts:
   - {fileID: 11400000, guid: a8f56c5f5c3b61a4bb7bdba68c924e5d, type: 2}
+  - {fileID: 11400000, guid: 8d093a7c273c656479ab96c2679056cf, type: 2}
+  - {fileID: 11400000, guid: 86b17e86fb24fb843899cef946e80bc0, type: 2}
+  - {fileID: 11400000, guid: e3ca2e41fcb57ea47b52098be6e83ba4, type: 2}

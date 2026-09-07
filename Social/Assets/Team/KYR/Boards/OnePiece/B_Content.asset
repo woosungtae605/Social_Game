@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c7d6e5f4b33210a9c8d7e6f5a4b3c2, type: 3}
+  m_Name: B_Content
+  m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostContentSo
+  body: "\uB8E8\uD53C \uBC88\uAC1C \uC5C6\uB294 \uC624\uB978\uC190 \uBCF4\uBA74 \uB530\uBD09
+    \uD558\uACE0\uC788\uB294\uB370 \uC5C4\uC9C0\uAC00 \uD558\uB098 \uB354 \uC788\uC74C
+    \r\n\r\n\uC804\uD615\uC801\uC778 ai\uC721\uC190\uC778\uB370 \uAC04\uB9CC\uC5D0
+    \uBCF8\uB2E4\r\n\r\n\uC6CC\uB099 \uBC14\uC058\uB2C8\uAE4C \uC4F0\uB294\uAC74
+    \uC774\uD574\uD558\uB294\uB370 \uBB58 \uC774\uB807\uAC8C \uD5C8\uC220\uD558\uAC8C\uC4F0\uB0D0
+    \uC9DC\uCE58\uAC8C"
+  images:
+  - {fileID: -8721558181541580268, guid: d6d07b0309c8cb34284f2f8c4355e048, type: 3}
