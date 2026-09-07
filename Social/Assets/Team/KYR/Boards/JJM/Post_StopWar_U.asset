@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d122440ef7ae4ab68ff0ae322dc1e, type: 3}
+  m_Name: Post_StopWar_U
+  m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostSo
+  writer: "\uD3C9\uD654\uC8FC\uC758\uC790"
+  title: "\uBBF8\uAD6D\uC740 \uC804\uC7C1\uC744 \uBA48\uCDB0\uB77C"
+  initialViewCount: 0
+  kind: 10
+  originCountry: 1
+  content: {fileID: 11400000, guid: bee2971f9b18f7b4bad295c6fae820f6, type: 2}

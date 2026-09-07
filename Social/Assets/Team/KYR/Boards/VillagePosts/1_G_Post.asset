@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d122440ef7ae4ab68ff0ae322dc1e, type: 3}
+  m_Name: 1_G_Post
+  m_EditorClassIdentifier: Assembly-CSharp::Team.KYR.Scripts.BoardPostSo
+  writer: "\u3147\u3147"
+  title: "\uBCF4\uC721\uC6D0 \uC560\u3145\uB07C 8\uB144 \uB3D9\uC548 \uD6C4\uC6D0\uD588\uB294\uB370
+    \uD1A0\uD1A0\uC0AC\uC774\uD2B8 \uC6B4\uC601\uD558\uB2E4\uAC00 \uAE5C\uBE75\uAC14\uB2E4\uACE0
+    \uBA74\uD68C \uC640\uB2EC\uB77C\uB294\uB370 \uC5B4\uB5A1\uD568"
+  initialViewCount: 515
+  kind: 85
+  originCountry: 0
+  content: {fileID: 11400000, guid: e43416ae04bc4e64fa36f356152db70c, type: 2}
