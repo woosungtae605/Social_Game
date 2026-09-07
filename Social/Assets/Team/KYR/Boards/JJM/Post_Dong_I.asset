@@ -15,6 +15,6 @@ MonoBehaviour:
   writer: "\uB098\uB098\uD2B8"
   title: "\uC778\uB3C4 \uCE74\uB808 \uB9DB\uC788\uB124"
   initialViewCount: 0
-  kind: 30
+  kind: 20
   originCountry: 6
   content: {fileID: 11400000, guid: 6a8ae2b8972a93d42a5e720c79470482, type: 2}

@@ -2842,7 +2842,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c0b410ae479319f499f34d114afb1f1b, type: 2}
   - {fileID: 11400000, guid: d3983ebdba8415944ba48ec73aa2fc9a, type: 2}
   - {fileID: 11400000, guid: 400ee67a8b4e0564a88139e2bc6594ba, type: 2}
-  minInterval: 25
+  - {fileID: 11400000, guid: 0d69360183910334aab0aaf0382294a4, type: 2}
+  - {fileID: 11400000, guid: ac8e59d9eced9754d90224bfc3908ca3, type: 2}
+  - {fileID: 11400000, guid: ca847d44ae2a1b543913850d9a896bb1, type: 2}
+  minInterval: 20
   maxInterval: 35
 --- !u!114 &203035111
 MonoBehaviour:
@@ -2885,7 +2888,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 206b66270570ccd4f9dd503e10052bf6, type: 2}
   - {fileID: 11400000, guid: d8d22b720eeb5334f9f0d460ac743faf, type: 2}
   - {fileID: 11400000, guid: 7d0b71b1c967e164b979082fe293dae2, type: 2}
-  minInterval: 25
+  - {fileID: 11400000, guid: 7a76af78094fdae489a3c479ce5a61c5, type: 2}
+  - {fileID: 11400000, guid: 6ef3a0f7952525e439b66a23e8dd8013, type: 2}
+  - {fileID: 11400000, guid: 7c824e85836f61d439d987d62ae56a27, type: 2}
+  - {fileID: 11400000, guid: 0439393cb30c69c4c97f2b266ec0e34e, type: 2}
+  - {fileID: 11400000, guid: e2616f464c697cf44b19f5ec91436fff, type: 2}
+  - {fileID: 11400000, guid: 04391795f45b94641b9a83a3daaebcbc, type: 2}
+  minInterval: 20
   maxInterval: 35
 --- !u!1 &215094379
 GameObject:
